@@ -1,0 +1,410 @@
+/* Jackson Hagood | jacksonhagood.com */
+
+/* fonts */
+
+@font-face {
+    font-family: Armata;
+    src: url("../Fonts/Armata.otf")
+}
+
+@font-face {
+    font-family: Bank;
+    src: url("../Fonts/BankGothic.ttf")
+}
+
+@font-face {
+    font-family: Noto;
+    src: url("../Fonts/NotoSans.ttf")
+}
+
+/* body */
+
+body {
+    background-color: #444444;
+    margin: 0;
+}
+
+/* header & navigation */
+
+header {
+    background-color: #252525;
+    height: 120px;
+    overflow: hidden;
+}
+
+.profile {
+    background-image: url("../Images/Logo.png");
+    background-size: cover;
+    float: left;
+    height: 120px;
+    width: 120px;
+    margin-left: 15%;
+    display: block;
+}
+
+.profile span {
+    display: none;
+}
+
+.navigation {
+    margin-right: 15%;
+    padding: 20px 0px 20px 0px;
+}
+
+.navigation a {
+    color: #FFFFFF;
+    float: right;
+    font-family: Bank;
+    font-size: 30px;
+    padding: 25px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+.navigation a:hover {
+    filter: opacity(50%);
+}
+
+.redbottom {
+    border-bottom: solid 15px #EE5555;
+}
+
+.greenbottom {
+    border-bottom: solid 15px #55EE55;
+}
+
+.yellowbottom {
+    border-bottom: solid 15px #EEEE55;
+}
+
+.cyanbottom {
+    border-bottom: solid 15px #01d4ff
+}
+
+.pinkbottom {
+    border-bottom: solid 15px #EE55EE;
+}
+
+/* article */
+
+article {
+    color: #FFFFFF;
+    min-height: 100vh;
+    padding-left: 15%;
+    padding-right: 15%;
+}
+
+article p {
+    font-family: Noto;
+    font-size: 20px;
+}
+
+article h2 {
+    font-family: Noto;
+    font-size: 25px;
+}
+
+article img {
+    width: 100%;
+}
+
+article li {
+    font-family: Noto;
+    font-size: 20px;
+}
+
+article hr {
+    border: 2px solid #FFFFFF;
+    background-color: #FFFFFF;
+}
+
+article iframe {
+    border: none;
+}
+
+article table {
+    background-attachment: fixed;
+    background-image: url("../Images/Gradient.jpg");
+    background-size: cover;
+    border-collapse: collapse;
+    font-family: Noto;
+    width: 100%;
+}
+
+article tr:hover td {
+    background-color: #252525;
+}
+
+article th {
+    background-color: #252525;
+}
+
+article td, article th {
+    padding: 5px;
+    text-align: left;
+}
+
+/* blocking */
+
+.center {
+    clear: both;
+    padding: 20px 0px 20px 0px;
+    width: 100%;
+}
+
+.left {
+    float: left;
+    overflow: hidden;
+}
+
+.right {
+    float: right;
+    overflow: hidden;
+}
+
+.half {
+    width: 49%;
+}
+
+.onequarter {
+    width: 24%;
+}
+
+.threequarters {
+    width: 74%;
+}
+
+/* page title */
+
+.title {
+    height: 200px;
+    padding: 0px;
+    margin: 20px 0px 20px 0px;
+}
+
+.title h1 {
+    background-image: url("../Images/Triangles.jpg");
+    background-size: cover;
+    font-family: Armata;
+    font-size: 80px;
+    font-weight: normal;
+    line-height: 200px;
+    margin: 0px;
+    text-align: center; 
+    width: 100%;
+}
+
+/* links section */
+
+.links {
+    float: left;
+    width: 100%;
+}
+
+.links h1 {
+    float: left;
+    font-family: Armata;
+    font-size: 40px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.links a {
+    float: right;
+    margin: 5px;
+}
+
+.links a:hover {
+    filter: opacity(50%);
+}
+
+.links img {
+    width: 50px;
+}
+
+/* slideshow */
+
+.slideshow img {
+    pointer-events: none;
+    vertical-align: middle;
+    width: 100%;
+}
+
+.slide {
+    display: none;
+}
+
+.slideshow {
+    margin: auto;
+    position: relative;
+    width: 100%;
+}
+
+.prev, .next {
+    cursor: pointer;
+    font-size: 64px;
+    margin-top: -64px;
+    padding: 32px;
+    position: absolute;
+    top: 50%;
+    user-select: none;
+    width: auto;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    color: #FFFFFF;
+}
+
+.caption {
+    bottom: 16px;
+    cursor: default;
+    font-family: Noto;
+    font-size: 16px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.caption:hover {
+    color: #FFFFFF;
+}
+
+.number {
+    cursor: default;
+    font-family: Noto;
+    font-size: 16px;
+    padding: 16px 16px;
+    position: absolute;
+    top: 0;
+}
+
+.number:hover {
+    color: #FFFFFF;
+}
+
+/* image */
+
+.circle {
+    border-radius: 50%;
+}
+
+.imgpad {
+    padding: 5px;
+}
+
+/* colors */
+
+.red {
+    color: #EE5555;
+}
+
+.green {
+    color: #55EE55;
+}
+
+.yellow {
+    color: #EEEE55;
+}
+
+.cyan {
+    color: #01d4ff
+}
+
+.pink {
+    color: #EE55EE;
+}
+
+/* index page */
+
+.index {
+    background-image: url("../Images/Hex.jpg");
+    background-size: cover;
+}
+
+.jackson {
+    padding-top: 40px;
+    pointer-events: none;
+    width: 100%;
+}
+
+.about {
+    background-color: #444444EE;
+    width: 49%;
+}
+
+.pad {
+    padding: 5%;
+}
+
+.portrait {
+    border-radius: 0;
+    outline: solid #FFFFFF 5px;
+    width: 100%;
+}
+
+/* programming page */
+
+.icon {
+    background-color: #252525;
+    outline: solid #FFFFFF 5px;
+    width: 100%;
+}
+
+/* footer */
+
+footer a:hover {
+    color: #FFFFFF;
+}
+
+footer {
+    background-color: #252525;
+    overflow: hidden;
+    padding: 30px 0px 30px 0px;
+    text-align: center;
+}
+
+footer button {
+    background-color: #FFFFFF;
+    border: none;
+    color: #252525;
+    cursor: pointer;
+    display: inline-block;
+    font-family: Noto;
+    font-size: 16px;
+    height: 50px;
+    text-align: center;
+    text-decoration: none;
+    width: 200px;
+}
+
+footer button:hover {
+    filter: opacity(50%);
+}
+
+.redtop {
+    border-top: solid 15px #EE5555;
+}
+
+.greentop {
+    border-top: solid 15px #55EE55;
+}
+
+.yellowtop {
+    border-top: solid 15px #EEEE55;
+}
+
+.cyantop {
+    border-top: solid 15px #01d4ff;
+}
+
+.pinktop {
+    border-top: solid 15px #EE55EE;
+}
