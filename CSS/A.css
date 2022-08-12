@@ -78,7 +78,7 @@ header {
 }
 
 .cyanbottom {
-    border-bottom: solid 15px #01d4ff
+    border-bottom: solid 15px #01d4ff;
 }
 
 .pinkbottom {
@@ -123,9 +123,8 @@ article iframe {
 }
 
 article table {
-    background-attachment: fixed;
-    background-image: url("../Images/Gradient.jpg");
-    background-size: cover;
+    background: rgb(0,59,196);
+    background: linear-gradient(45deg, rgba(0,59,196,1) 0%, rgba(1,212,255,1) 100%);
     border-collapse: collapse;
     font-family: Noto;
     width: 100%;
@@ -147,9 +146,23 @@ article td, article th {
 /* blocking */
 
 .center {
+    background: rgb(0,59,196);
+    background: linear-gradient(45deg, rgba(0,59,196,1) 0%, rgba(1,212,255,1) 100%);
+    border-radius: 25px;
     clear: both;
-    padding: 20px 0px 20px 0px;
-    width: 100%;
+    height: 100%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 25px;
+
+}
+
+.center:after {
+    clear: both;
+    content: "."; 
+    display: block; 
+    height: 0;
+    visibility: hidden; 
 }
 
 .left {
@@ -228,6 +241,7 @@ article td, article th {
     pointer-events: none;
     vertical-align: middle;
     width: 100%;
+    border-radius: 25px;
 }
 
 .slide {
@@ -302,26 +316,6 @@ article td, article th {
 
 /* colors */
 
-.red {
-    color: #EE5555;
-}
-
-.green {
-    color: #55EE55;
-}
-
-.yellow {
-    color: #EEEE55;
-}
-
-.cyan {
-    color: #01d4ff
-}
-
-.pink {
-    color: #EE55EE;
-}
-
 /* index page */
 
 .index {
@@ -335,27 +329,62 @@ article td, article th {
     width: 100%;
 }
 
-.about {
-    background-color: #444444EE;
-    width: 49%;
-}
-
 .pad {
     padding: 5%;
 }
 
 .portrait {
-    border-radius: 0;
-    outline: solid #FFFFFF 5px;
     width: 100%;
+    border-radius: 25px;
 }
 
 /* programming page */
 
 .icon {
     background-color: #252525;
-    outline: solid #FFFFFF 5px;
+    border-radius: 25px;
     width: 100%;
+}
+
+/* interests page */
+
+.interests img {
+    border-radius: 25px;
+}
+
+/* resume page */
+
+.resume>.center {
+    padding: 0px;
+    background: none;
+}
+
+/* literature */
+
+.literature>.center {
+    background: rgb(255,68,0);
+background: linear-gradient(45deg, rgba(255,68,0,1) 0%, rgba(238,238,85,1) 100%);
+}
+
+/* minecraft */
+
+.minecraft>.center {
+    background: rgb(41,189,182);
+    background: linear-gradient(45deg, rgba(41,189,182,1) 0%, rgba(85,238,85,1) 100%);
+}
+
+/* music */
+
+.music>.center {
+    background: rgb(63,41,189);
+    background: linear-gradient(45deg, rgba(63,41,189,1) 0%, rgba(238,85,238,1) 100%);
+}
+
+/* lego */
+
+.lego>.center {
+    background: rgb(193,151,35);
+    background: linear-gradient(45deg, rgba(193,151,35,1) 0%, rgba(238,85,85,1) 100%);
 }
 
 /* footer */

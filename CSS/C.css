@@ -167,6 +167,10 @@ article td, article th {
     width: 100%;
 }
 
+.center:last-child {
+    margin-bottom: 2000px;
+}
+
 .left {
     float: left;
     overflow: hidden;
