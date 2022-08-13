@@ -107,6 +107,7 @@ article li {
 
 article iframe {
     border: none;
+    border-radius: 25px;
 }
 
 article table {
@@ -135,8 +136,12 @@ article td, article th {
 /* blocking */
 
 .center {
-    background: #003bc4;
-    background: linear-gradient(45deg, #003bc4 0%, #01d4ff 100%);
+    background: #0001c4;
+    background: linear-gradient(10deg, #0001c4 0%, #01d4ff 75%);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
     border-radius: 25px;
     clear: both;
     height: 100%;
@@ -373,8 +378,8 @@ article td, article th {
 /* resume page */
 
 .resume {
-    background: #003bc4;
-    background: linear-gradient(45deg, #003bc4 0%, #01d4ff 100%);
+    background: #0001c4;
+    background: linear-gradient(10deg, #0001c4 0%, #01d4ff 75%);
     background-attachment: fixed;
 }
 
@@ -385,9 +390,13 @@ article td, article th {
 
 /* literature */
 
-.literature>.center {
-    background: #ff4400;
-    background: linear-gradient(45deg, #ff4400 0%, #eeee55 100%);
+.literature > .center {
+    background: #ff3300;
+    background: linear-gradient(10deg, #ff3300 0%, #eeee55 75%);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* minecraft */
@@ -398,16 +407,24 @@ article td, article th {
     background-attachment: fixed;
 }
 
-.minecraft>.center {
-    background: rgb(41,189,182);
-    background: linear-gradient(45deg, #29bdb6 0%, #6ee36e 100%);
+.minecraft > .center {
+    background: #29bdb6;
+    background: linear-gradient(10deg, #29bdb6 0%, #6ee36e 75%);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* music */
 
-.music>.center {
-    background: rgb(63,41,189);
-    background: linear-gradient(45deg, #3f29bd 0%, #ee55ee 100%);
+.music > .center {
+    background: #3f29bd;
+    background: linear-gradient(10deg, #3f29bd 0%, #ee55ee 75%);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
 }
 
 /* footer */
