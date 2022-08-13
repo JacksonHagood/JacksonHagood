@@ -23,8 +23,7 @@ body {
 
 header {
     background-color: #252525;
-    height: 120px;
-    overflow: hidden;
+    min-height: 120px;
 }
 
 .profile {
@@ -44,11 +43,13 @@ header {
 .navigation {
     margin-right: 15%;
     padding: 20px 0px 20px 0px;
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
 }
 
 .navigation a {
     color: #FFFFFF;
-    float: right;
     font-family: Bank;
     font-size: 30px;
     padding: 25px;
