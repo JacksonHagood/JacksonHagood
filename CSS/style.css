@@ -194,7 +194,7 @@ article td, article th {
 }
 
 .title h1 {
-    font-family: Consolas;
+    font-family: Consola;
     font-size: 80px;
     font-weight: normal;
     line-height: 200px;
@@ -212,7 +212,7 @@ article td, article th {
 
 .links h1 {
     float: left;
-    font-family: Consolas;
+    font-family: Consola;
     font-size: 50px;
     font-weight: normal;
     margin: 0;
@@ -241,7 +241,7 @@ article td, article th {
 
 .skills > span {
     background-color: #252525;
-    font-family: Consolas;
+    font-family: Consola;
     font-size: 15px;
     margin-right: 10px;
     margin-top: 10px;
