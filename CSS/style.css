@@ -3,6 +3,11 @@
 /* fonts */
 
 @font-face {
+    font-family: Consola;
+    src: url("../Fonts/consola.ttf")
+}
+
+@font-face {
     font-family: Bank;
     src: url("../Fonts/BankGothic.ttf")
 }
