@@ -92,6 +92,7 @@ article {
     min-height: 100vh;
     padding-left: 15%;
     padding-right: 15%;
+    padding-bottom: 1px;
 }
 
 article p {
@@ -118,19 +119,21 @@ article iframe {
 }
 
 article table {
-    background: rgb(0,59,196);
-    background: linear-gradient(45deg, #003bc4 0%, #01d4ff 100%);
+    background: #FFFFFF;
     border-collapse: collapse;
+    color: #252525;
     font-family: Noto;
     width: 100%;
 }
 
 article tr:hover td {
     background-color: #252525;
+    color: #FFFFFF;
 }
 
 article th {
     background-color: #252525;
+    color: #FFFFFF;
 }
 
 article td, article th {
@@ -141,7 +144,7 @@ article td, article th {
 /* blocking */
 
 .center {
-    background: rgb(0,59,196);
+    background: #003bc4;
     background: linear-gradient(45deg, #003bc4 0%, #01d4ff 100%);
     border-radius: 25px;
     clear: both;
@@ -149,7 +152,6 @@ article td, article th {
     margin-bottom: 50px;
     margin-top: 50px;
     padding: 25px;
-
 }
 
 .center:after {
@@ -187,12 +189,9 @@ article td, article th {
 .title {
     height: 200px;
     padding: 0px;
-    margin: 20px 0px 20px 0px;
 }
 
 .title h1 {
-    background-image: url("../Images/Triangles.jpg");
-    background-size: cover;
     font-family: Consolas;
     font-size: 80px;
     font-weight: normal;
@@ -332,6 +331,7 @@ article td, article th {
 .index {
     background-image: url("../Images/Hex.jpg");
     background-size: cover;
+    background-attachment: fixed;
 }
 
 .jackson {
@@ -351,6 +351,12 @@ article td, article th {
 
 /* programming page */
 
+.programming {
+    background-image: url("../Images/Triangles.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .icon {
     background-color: #252525;
     border-radius: 25px;
@@ -359,13 +365,29 @@ article td, article th {
 
 /* interests page */
 
+.interests {
+    background-image: url("../Images/Cubes.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.interests > .title {
+    color: #252525;
+}
+
 .interests img {
     border-radius: 25px;
 }
 
 /* resume page */
 
-.resume>.center {
+.resume {
+    background: #003bc4;
+    background: linear-gradient(45deg, #003bc4 0%, #01d4ff 100%);
+    background-attachment: fixed;
+}
+
+.resume > .center {
     padding: 0px;
     background: none;
 }
