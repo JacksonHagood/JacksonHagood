@@ -3,11 +3,6 @@
 /* fonts */
 
 @font-face {
-    font-family: Armata;
-    src: url("../Fonts/Armata.otf")
-}
-
-@font-face {
     font-family: Bank;
     src: url("../Fonts/BankGothic.ttf")
 }
@@ -63,10 +58,6 @@ header {
 
 .navigation a:hover {
     filter: opacity(50%);
-}
-
-.redbottom {
-    border-bottom: solid 15px #EE5555;
 }
 
 .greenbottom {
@@ -188,7 +179,7 @@ article td, article th {
 
 .title {
     height: 200px;
-    padding: 0px;
+    padding-Top: 50px;
 }
 
 .title h1 {
@@ -226,7 +217,7 @@ article td, article th {
 }
 
 .links img {
-    width: 50px;
+    width: 40px;
 }
 
 /* skills */
@@ -401,6 +392,12 @@ article td, article th {
 
 /* minecraft */
 
+.minecraft {
+    background-image: url("../Images/PaletteIsland/City.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
 .minecraft>.center {
     background: rgb(41,189,182);
     background: linear-gradient(45deg, #29bdb6 0%, #6ee36e 100%);
@@ -413,13 +410,6 @@ article td, article th {
     background: linear-gradient(45deg, #3f29bd 0%, #ee55ee 100%);
 }
 
-/* lego */
-
-.lego>.center {
-    background: rgb(193,151,35);
-    background: linear-gradient(45deg, #c19723 0%, #ee5555 100%);
-}
-
 /* footer */
 
 footer a:hover {
@@ -429,13 +419,14 @@ footer a:hover {
 footer {
     background-color: #252525;
     overflow: hidden;
-    padding: 30px 0px 30px 0px;
+    padding: 15px 0px 15px 0px;
     text-align: center;
 }
 
 footer button {
     background-color: #FFFFFF;
     border: none;
+    border-radius: 5px;
     color: #252525;
     cursor: pointer;
     display: inline-block;
@@ -449,10 +440,6 @@ footer button {
 
 footer button:hover {
     filter: opacity(50%);
-}
-
-.redtop {
-    border-top: solid 15px #EE5555;
 }
 
 .greentop {
