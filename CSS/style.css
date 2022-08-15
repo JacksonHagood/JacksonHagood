@@ -27,7 +27,9 @@ body {
 /* header & navigation */
 
 header {
-    background-color: #252525AA;
+    background-color: #252525;
+    border-radius: 25px;
+    margin: 50px 15% 0px 15%;
     min-height: 120px;
 }
 
@@ -36,8 +38,8 @@ header {
     background-size: cover;
     float: left;
     height: 120px;
+    margin: 5px;
     width: 120px;
-    margin-left: 15%;
     display: block;
 }
 
@@ -46,8 +48,6 @@ header {
 }
 
 .navigation {
-    margin-right: 15%;
-    padding: 20px 0px 20px 0px;
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
@@ -57,7 +57,7 @@ header {
     color: #FFFFFF;
     font-family: Bank;
     font-size: 30px;
-    padding: 25px 0px 25px 50px;
+    padding: 50px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -146,7 +146,7 @@ article td, article th {
 
 .center:after {
     clear: both;
-    content: "."; 
+    content: ".";
     display: block; 
     height: 0;
     visibility: hidden; 
@@ -420,35 +420,37 @@ article td, article th {
 /* footer */
 
 footer {
-    background-color: #252525AA;
     overflow: hidden;
-    padding-left: 15%;
-    padding-right: 15%;
     text-align: center;
+    background-color: #252525;
+    border-radius: 25px;
+    margin: 0px 15% 50px 15%;
 }
 
 .footernavigation {
     display: flex;
     flex-direction: row;
+    flex-wrap: wrap;
 }
 
 .footerlinks {
     display: flex;
     flex-direction: row-reverse;
+    flex-wrap: wrap;
 }
 
 .footernavigation a {
-    padding: 25px 50px 25px 0px;
+    margin: 25px;
 }
 
 .footerlinks a {
-    padding: 25px 0px 25px 50px;
+    margin: 25px;
 }
 
 footer a {
     color: #FFFFFF;
     font-family: Consola;
-    font-size: 24px;
+    font-size: 20px;
 }
 
 footer a:hover {
