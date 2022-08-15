@@ -27,7 +27,7 @@ body {
 /* header & navigation */
 
 header {
-    background-color: #252525;
+    background-color: #252525AA;
     min-height: 120px;
 }
 
@@ -57,7 +57,7 @@ header {
     color: #FFFFFF;
     font-family: Bank;
     font-size: 30px;
-    padding: 25px;
+    padding: 25px 0px 25px 50px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -68,22 +68,6 @@ header {
 
 .current {
     color: #01d4ff !important;
-}
-
-.greenbottom {
-    border-bottom: solid 15px #55EE55;
-}
-
-.yellowbottom {
-    border-bottom: solid 15px #EEEE55;
-}
-
-.cyanbottom {
-    border-bottom: solid 15px #01d4ff;
-}
-
-.pinkbottom {
-    border-bottom: solid 15px #EE55EE;
 }
 
 /* article */
@@ -373,7 +357,7 @@ article td, article th {
     background-attachment: fixed;
 }
 
-.interests > .title {
+.interests > article > .title {
     color: #252525;
 }
 
@@ -389,14 +373,14 @@ article td, article th {
     background-attachment: fixed;
 }
 
-.resume > .center {
+.resume > article > .center {
     padding: 0px;
     background: none;
 }
 
 /* literature */
 
-.literature > .center {
+.literature > article > .center {
     background: #ff3300;
     background: linear-gradient(10deg, #ff3300 0%, #eeee55 75%);
     background-size: cover;
@@ -413,7 +397,7 @@ article td, article th {
     background-attachment: fixed;
 }
 
-.minecraft > .center {
+.minecraft > article > .center {
     background: #29bdb6;
     background: linear-gradient(10deg, #29bdb6 0%, #6ee36e 75%);
     background-size: cover;
@@ -424,7 +408,7 @@ article td, article th {
 
 /* music */
 
-.music > .center {
+.music > article > .center {
     background: #3f29bd;
     background: linear-gradient(10deg, #3f29bd 0%, #ee55ee 75%);
     background-size: cover;
@@ -435,48 +419,38 @@ article td, article th {
 
 /* footer */
 
-footer a:hover {
-    color: #FFFFFF;
-}
-
 footer {
-    background-color: #252525;
+    background-color: #252525AA;
     overflow: hidden;
-    padding: 15px 0px 15px 0px;
+    padding-left: 15%;
+    padding-right: 15%;
     text-align: center;
 }
 
-footer button {
-    background-color: #FFFFFF;
-    border: none;
-    border-radius: 5px;
-    color: #252525;
-    cursor: pointer;
-    display: inline-block;
-    font-family: Noto;
-    font-size: 16px;
-    height: 50px;
-    text-align: center;
-    text-decoration: none;
-    width: 200px;
+.footernavigation {
+    display: flex;
+    flex-direction: row;
 }
 
-footer button:hover {
-    filter: opacity(50%);
+.footerlinks {
+    display: flex;
+    flex-direction: row-reverse;
 }
 
-.greentop {
-    border-top: solid 15px #55EE55;
+.footernavigation a {
+    padding: 25px 50px 25px 0px;
 }
 
-.yellowtop {
-    border-top: solid 15px #EEEE55;
+.footerlinks a {
+    padding: 25px 0px 25px 50px;
 }
 
-.cyantop {
-    border-top: solid 15px #01d4ff;
+footer a {
+    color: #FFFFFF;
+    font-family: Consola;
+    font-size: 24px;
 }
 
-.pinktop {
-    border-top: solid 15px #EE55EE;
+footer a:hover {
+    color: #01d4ff;
 }
