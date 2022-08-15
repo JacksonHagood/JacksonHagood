@@ -66,6 +66,10 @@ header {
     filter: opacity(50%);
 }
 
+.current {
+    color: #01d4ff !important;
+}
+
 .greenbottom {
     border-bottom: solid 15px #55EE55;
 }
