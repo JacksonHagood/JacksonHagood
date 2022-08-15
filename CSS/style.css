@@ -288,7 +288,7 @@ article td, article th {
 }
 
 .prev:hover, .next:hover {
-    color: #FFFFFF;
+    color: #252525;
 }
 
 .caption {
@@ -302,7 +302,7 @@ article td, article th {
 }
 
 .caption:hover {
-    color: #FFFFFF;
+    color: #252525;
 }
 
 .number {
@@ -315,7 +315,7 @@ article td, article th {
 }
 
 .number:hover {
-    color: #FFFFFF;
+    color: #252525;
 }
 
 /* image */
@@ -380,8 +380,8 @@ article td, article th {
 /* resume page */
 
 .resume {
-    background: #0001c4;
-    background: linear-gradient(10deg, #0001c4 0%, #01d4ff 75%);
+    background-image: url("../Images/Waves.jpg");
+    background-size: cover;
     background-attachment: fixed;
 }
 
