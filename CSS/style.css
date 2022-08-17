@@ -47,13 +47,13 @@ header {
     display: none;
 }
 
-.navigation {
+nav {
     display: flex;
     flex-direction: row-reverse;
     flex-wrap: wrap-reverse;
 }
 
-.navigation a {
+nav a {
     color: #FFFFFF;
     font-family: Bank;
     font-size: 30px;
@@ -62,7 +62,7 @@ header {
     text-transform: uppercase;
 }
 
-.navigation a:hover {
+nav a:hover {
     filter: opacity(50%);
 }
 
