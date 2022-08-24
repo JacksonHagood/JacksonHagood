@@ -57,7 +57,7 @@ nav a {
     color: #FFFFFF;
     font-family: Bank;
     font-size: 30px;
-    padding: 50px;
+    padding: 50px 50px 50px 0px;
     text-decoration: none;
     text-transform: uppercase;
 }
@@ -440,11 +440,11 @@ footer {
 }
 
 .footernavigation a {
-    margin: 25px;
+    margin: 25px 0px 25px 25px;
 }
 
 .footerlinks a {
-    margin: 25px;
+    margin: 25px 25px 25px 0px;
 }
 
 footer a {
