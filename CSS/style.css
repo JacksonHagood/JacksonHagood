@@ -99,6 +99,10 @@ article li {
     font-size: 20px;
 }
 
+article a {
+    color: #FFFFFF;
+}
+
 article iframe {
     border: none;
     border-radius: 25px;
