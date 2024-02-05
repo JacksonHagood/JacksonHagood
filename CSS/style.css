@@ -353,6 +353,18 @@ article td, article th {
     width: 100%;
 }
 
+/* tutoring page */
+
+.tutoring {
+    background-image: url("../Images/Mountain.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.tutoring > article > .title {
+    color: #01d4ff;
+}
+
 /* interests page */
 
 .interests {
@@ -380,45 +392,6 @@ article td, article th {
 .resume > article > .center {
     padding: 0px;
     background: none;
-}
-
-/* literature */
-
-.literature > article > .center {
-    background: #ff3300;
-    background: linear-gradient(10deg, #ff3300 0%, #eeee55 75%);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* minecraft */
-
-.minecraft {
-    background-image: url("../Images/PaletteIsland/City.jpg");
-    background-size: cover;
-    background-attachment: fixed;
-}
-
-.minecraft > article > .center {
-    background: #29bdb6;
-    background: linear-gradient(10deg, #29bdb6 0%, #6ee36e 75%);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
-}
-
-/* music */
-
-.music > article > .center {
-    background: #3f29bd;
-    background: linear-gradient(10deg, #3f29bd 0%, #ee55ee 75%);
-    background-size: cover;
-    background-attachment: fixed;
-    background-position: center;
-    background-repeat: no-repeat;
 }
 
 /* footer */
