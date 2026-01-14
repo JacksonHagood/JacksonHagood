@@ -1,0 +1,62 @@
+@import '../../styles/variables.scss';
+
+.topbar {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  height: 40px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $spacing-lg;
+  background-color: $topbar-bg;
+  border-bottom: 1px solid $border-color;
+  z-index: $z-topbar;
+  backdrop-filter: blur(10px);
+  font-family: $font-mono;
+}
+
+.topbar-left {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+}
+
+.topbar-site-name {
+  font-size: $font-size-base;
+  color: $text-accent;
+  letter-spacing: 2px;
+  
+  &::before {
+    content: '> ';
+    color: $text-muted;
+  }
+}
+
+.topbar-right {
+  display: flex;
+  align-items: center;
+  gap: $spacing-lg;
+}
+
+.topbar-email {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  color: $text-secondary;
+  font-size: $font-size-sm;
+  
+  .email-icon {
+    color: $text-muted;
+  }
+  
+  a {
+    color: $text-secondary;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $text-accent;
+    }
+  }
+}

@@ -1,0 +1,63 @@
+{
+  "categories": [
+    {
+      "id": "web",
+      "name": "Web Development",
+      "projects": [
+        {
+          "id": "project-1",
+          "title": "Project Name",
+          "description": "A brief description of the project and what it does.",
+          "technologies": ["React", "TypeScript", "Node.js"],
+          "github": "https://github.com/yourusername/project",
+          "link": "https://project-demo.com"
+        },
+        {
+          "id": "project-2",
+          "title": "Another Project",
+          "description": "Description of another cool project.",
+          "technologies": ["Python", "FastAPI", "PostgreSQL"],
+          "github": "https://github.com/yourusername/project2"
+        }
+      ]
+    },
+    {
+      "id": "systems",
+      "name": "Systems & Tools",
+      "projects": [
+        {
+          "id": "project-3",
+          "title": "CLI Tool",
+          "description": "A command-line tool for doing something useful.",
+          "technologies": ["Rust", "CLI"],
+          "github": "https://github.com/yourusername/cli-tool"
+        }
+      ]
+    },
+    {
+      "id": "ml",
+      "name": "Machine Learning",
+      "projects": [
+        {
+          "id": "project-4",
+          "title": "ML Project",
+          "description": "A machine learning project exploring data science.",
+          "technologies": ["Python", "TensorFlow", "Pandas"],
+          "github": "https://github.com/yourusername/ml-project"
+        }
+      ]
+    },
+    {
+      "id": "other",
+      "name": "Other",
+      "projects": [
+        {
+          "id": "project-5",
+          "title": "Misc Project",
+          "description": "Other interesting projects.",
+          "technologies": ["Various"]
+        }
+      ]
+    }
+  ]
+}

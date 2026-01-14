@@ -1,0 +1,136 @@
+@import '../../styles/variables.scss';
+@import './pages_extra.scss';
+
+// shared page styles
+.page-content {
+  font-family: $font-mono;
+  color: $text-primary;
+  
+  h1, h2, h3 {
+    color: $text-accent;
+    margin-bottom: $spacing-md;
+  }
+  
+  h1 {
+    font-size: $font-size-xl;
+    
+    &::before {
+      content: #{$ascii-hash} ' ';
+      color: $text-muted;
+    }
+  }
+  
+  h2 {
+    font-size: $font-size-lg;
+    
+    &::before {
+      content: #{$ascii-hash}#{$ascii-hash} ' ';
+      color: $text-muted;
+    }
+  }
+  
+  h3 {
+    font-size: $font-size-base;
+    
+    &::before {
+      content: #{$ascii-hash}#{$ascii-hash}#{$ascii-hash} ' ';
+      color: $text-muted;
+    }
+  }
+  
+  p {
+    margin-bottom: $spacing-md;
+    line-height: 1.8;
+  }
+  
+  .section {
+    margin-bottom: $spacing-xl;
+  }
+  
+  .highlight {
+    color: $text-accent;
+  }
+  
+  .muted {
+    color: $text-muted;
+  }
+  
+  ul, ol {
+    margin-bottom: $spacing-md;
+    padding-left: $spacing-lg;
+    
+    li {
+      margin-bottom: $spacing-xs;
+      
+      &::marker {
+        color: $text-accent;
+      }
+    }
+  }
+  
+  .loading {
+    color: $text-muted;
+    font-style: italic;
+  }
+  
+  .info-block {
+    font-size: $font-size-sm;
+    background-color: $bg-tertiary;
+    padding: $spacing-md;
+    border-radius: 4px;
+    border: 1px solid $border-color;
+  }
+  
+  .download-button {
+    background: transparent;
+    border: 1px solid $text-accent;
+    color: $text-accent;
+    padding: $spacing-sm $spacing-md;
+    font-family: $font-mono;
+    font-size: $font-size-base;
+    cursor: pointer;
+    transition: all $transition-fast;
+    
+    &:hover {
+      background-color: #64ffda1a;
+    }
+  }
+  
+  // ascii banner styling
+  .ascii-banner {
+    color: $text-accent;
+    font-size: 10px;
+    line-height: 1.2;
+    margin-bottom: $spacing-md;
+  }
+  
+  // markdown content styling
+  .markdown-content {
+    h1, h2, h3 {
+      margin-top: $spacing-lg;
+    }
+    
+    code {
+      background-color: $bg-tertiary;
+      padding: 2px 6px;
+      border-radius: 4px;
+    }
+    
+    pre {
+      background-color: $bg-tertiary;
+      padding: $spacing-md;
+      border-radius: 4px;
+      border: 1px solid $border-color;
+      overflow-x: auto;
+      
+      code {
+        background: none;
+        padding: 0;
+      }
+    }
+    
+    strong {
+      color: $text-accent;
+    }
+  }
+}

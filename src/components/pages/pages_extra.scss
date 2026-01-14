@@ -1,0 +1,157 @@
+@import '../../styles/variables.scss';
+
+// additional styles for projects page
+.projects-tabs {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $text-muted;
+  margin-bottom: $spacing-md;
+  
+  .tab-border-top,
+  .tab-border-bottom {
+    display: block;
+    white-space: pre;
+    line-height: 1;
+  }
+  
+  .tab-row {
+    display: flex;
+    align-items: center;
+  }
+  
+  .tab-edge {
+    line-height: 1.8;
+  }
+  
+  .tab-button {
+    background: none;
+    border: none;
+    font-family: $font-mono;
+    font-size: $font-size-sm;
+    color: $text-secondary;
+    cursor: pointer;
+    padding: $spacing-xs $spacing-sm;
+    transition: color $transition-fast;
+    
+    &:hover {
+      color: $text-accent;
+    }
+    
+    &.active {
+      color: $text-accent;
+      font-weight: bold;
+    }
+  }
+}
+
+.projects-content {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.project-description {
+  color: $text-secondary;
+  margin-bottom: $spacing-sm;
+}
+
+.project-tech {
+  margin-bottom: $spacing-sm;
+  
+  .tech-tag {
+    color: $text-accent;
+  }
+}
+
+.project-links {
+  display: flex;
+  gap: $spacing-md;
+  
+  a {
+    color: $text-accent;
+    
+    &:hover {
+      text-decoration: underline;
+    }
+  }
+}
+
+// interests page styles
+.interests-list {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+  margin-top: $spacing-md;
+}
+
+.interest-item {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+  
+  .interest-emoji {
+    font-size: 18px;
+  }
+  
+  .interest-name {
+    font-weight: bold;
+  }
+}
+
+.blog-posts {
+  display: flex;
+  flex-direction: column;
+  gap: $spacing-sm;
+}
+
+.post-header {
+  display: flex;
+  align-items: center;
+  gap: $spacing-md;
+  
+  .post-toggle {
+    color: $text-accent;
+    font-weight: bold;
+  }
+  
+  .post-title {
+    flex: 1;
+    color: $text-primary;
+  }
+  
+  .post-date {
+    font-size: $font-size-sm;
+  }
+}
+
+.post-content {
+  padding-top: $spacing-sm;
+  border-top: 1px solid $border-color;
+  margin-top: $spacing-sm;
+  
+  .post-body {
+    margin-bottom: $spacing-sm;
+    color: $text-secondary;
+  }
+  
+  .post-tags {
+    display: flex;
+    gap: $spacing-sm;
+    
+    .tag {
+      color: $text-accent;
+      font-size: $font-size-sm;
+    }
+  }
+}
+
+// resume page styles
+.resume-preview {
+  margin: $spacing-lg 0;
+}
+
+.download-button {
+  &:hover {
+    background-color: #64ffda1a !important;
+  }
+}

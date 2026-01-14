@@ -1,0 +1,55 @@
+@import '../../styles/variables.scss';
+
+.ascii-box {
+  font-family: $font-mono;
+  line-height: 1;
+  margin: $spacing-md 0;
+}
+
+.ascii-box-border {
+  color: $text-muted;
+  white-space: pre;
+  
+  &.top {
+    color: $text-accent;
+  }
+}
+
+.ascii-box-body {
+  display: flex;
+}
+
+.ascii-box-edge {
+  color: $text-muted;
+  flex-shrink: 0;
+}
+
+.ascii-box-content {
+  flex: 1;
+  padding: $spacing-xs $spacing-sm;
+  min-width: 0;
+  line-height: 1.6;
+}
+
+.ascii-divider {
+  color: $text-muted;
+  margin: $spacing-lg 0;
+  overflow: hidden;
+  white-space: nowrap;
+  line-height: 1;
+}
+
+.ascii-section {
+  margin: $spacing-lg 0;
+}
+
+.ascii-section-header {
+  color: $text-accent;
+  white-space: pre;
+  line-height: 1;
+  margin-bottom: $spacing-sm;
+}
+
+.ascii-section-content {
+  padding-left: $spacing-md;
+}

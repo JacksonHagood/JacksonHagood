@@ -1,0 +1,72 @@
+@import './variables.scss';
+
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body, #root {
+  height: 100%;
+  width: 100%;
+  overflow: hidden;
+}
+
+body {
+  font-family: $font-mono;
+  font-size: $font-size-base;
+  color: $text-primary;
+  background-color: $bg-primary;
+  line-height: 1.6;
+}
+
+// selection styling
+::selection {
+  background-color: $text-accent;
+  color: $bg-primary;
+}
+
+// scrollbar styling
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: $bg-tertiary;
+}
+
+::-webkit-scrollbar-thumb {
+  background: $border-color;
+  border-radius: 4px;
+  
+  &:hover {
+    background: $text-muted;
+  }
+}
+
+// link styling
+a {
+  color: $text-accent;
+  text-decoration: none;
+  
+  &:hover {
+    text-decoration: underline;
+  }
+}
+
+// code/pre styling
+code, pre {
+  font-family: $font-mono;
+  background-color: $bg-tertiary;
+  border-radius: 4px;
+}
+
+code {
+  padding: 2px 6px;
+}
+
+pre {
+  padding: $spacing-md;
+  overflow-x: auto;
+}

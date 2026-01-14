@@ -1,0 +1,167 @@
+@import '../../styles/variables.scss';
+
+.window {
+  position: absolute;
+  display: flex;
+  flex-direction: column;
+  background-color: $bg-window;
+  border: 1px solid $border-color;
+  border-radius: 4px;
+  box-shadow: 0 8px 32px #00000066;
+  width: $window-width;
+  height: $window-height;
+  overflow: hidden;
+  
+  &.focused {
+    border-color: $border-accent;
+    
+    &::before {
+      border-color: #64ffda33;
+    }
+  }
+  
+  &::before {
+    content: '';
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    pointer-events: none;
+    border: 1px solid #64ffda1a;
+    border-radius: 4px;
+  }
+}
+
+.titlebar {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: $titlebar-height;
+  padding: 0 $spacing-sm;
+  background-color: $bg-titlebar;
+  border-bottom: 1px solid $border-color;
+  cursor: grab;
+  user-select: none;
+  flex-shrink: 0;
+  
+  &:active {
+    cursor: grabbing;
+  }
+}
+
+.titlebar-left {
+  display: flex;
+  align-items: center;
+}
+
+.titlebar-title {
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  color: $text-accent;
+  letter-spacing: 1px;
+}
+
+.titlebar-controls {
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+}
+
+.control-button {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  background: transparent;
+  border: 1px solid $border-color;
+  border-radius: 2px;
+  color: $text-secondary;
+  font-family: $font-mono;
+  font-size: $font-size-sm;
+  cursor: pointer;
+  transition: all $transition-fast;
+  
+  &:hover {
+    background-color: #64ffda1a;
+    border-color: $text-accent;
+    color: $text-accent;
+  }
+  
+  &.close:hover {
+    background-color: #ff6b6b33;
+    border-color: #ff6b6bff;
+    color: #ff6b6bff;
+  }
+}
+
+.window-content {
+  flex: 1;
+  padding: $spacing-md;
+  overflow: hidden;
+  font-family: $font-mono;
+  display: flex;
+  flex-direction: column;
+  min-height: 0;
+}
+
+// ascii border frame inside content
+.content-frame {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.frame-top,
+.frame-bottom {
+  display: flex;
+  color: $text-muted;
+  font-size: $font-size-sm;
+  line-height: 1;
+  flex-shrink: 0;
+}
+
+.frame-corner {
+  flex-shrink: 0;
+}
+
+.frame-horizontal {
+  flex: 1;
+  overflow: hidden;
+  white-space: nowrap;
+}
+
+.frame-body {
+  display: flex;
+  flex: 1;
+  min-height: 0;
+  overflow: hidden;
+}
+
+.frame-vertical {
+  color: $text-muted;
+  font-size: $font-size-sm;
+  line-height: 1.6;
+  display: flex;
+  flex-direction: column;
+  flex-shrink: 0;
+  overflow: hidden;
+}
+
+.frame-content {
+  flex: 1;
+  padding: $spacing-sm $spacing-md;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  
+  // hide scrollbar but keep scroll functionality
+  scrollbar-width: none; // firefox
+  -ms-overflow-style: none; // ie and edge
+  
+  &::-webkit-scrollbar {
+    display: none; // chrome, safari, opera
+  }
+}

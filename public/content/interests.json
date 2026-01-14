@@ -1,0 +1,26 @@
+{
+  "interests": [
+    { "emoji": "🎮", "name": "Gaming", "description": "Favorite games, platforms, etc." },
+    { "emoji": "📚", "name": "Reading", "description": "Favorite books or genres" },
+    { "emoji": "🎵", "name": "Music", "description": "Favorite artists or instruments" },
+    { "emoji": "🏃", "name": "Fitness", "description": "Sports or activities you enjoy" },
+    { "emoji": "✈️", "name": "Travel", "description": "Places you've been or want to go" },
+    { "emoji": "🎨", "name": "Creative", "description": "Art, design, or other hobbies" }
+  ],
+  "posts": [
+    {
+      "id": "post-1",
+      "title": "Interest or Hobby Title",
+      "date": "2026-01-14",
+      "content": "This is where you can write about your interests, hobbies, or any fun content you want to share. It could be about gaming, music, sports, travel, or anything else that makes you who you are outside of work.",
+      "tags": ["hobby", "personal"]
+    },
+    {
+      "id": "post-2",
+      "title": "Another Interest",
+      "date": "2026-01-10",
+      "content": "Share another interest or fun fact about yourself. This section helps visitors get to know you as a person, not just as a developer.",
+      "tags": ["interests", "fun"]
+    }
+  ]
+}

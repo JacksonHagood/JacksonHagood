@@ -1,0 +1,88 @@
+// color palette - terminal-inspired dark theme
+// all colors use 8-digit hex format: #RRGGBBAA
+$bg-primary: #1a1a2eff;
+$bg-secondary: #16213eff;
+$bg-tertiary: #0f0f1aff;
+$bg-window: #0d0d14ff;
+$bg-titlebar: #2a2a4aff;
+
+$text-primary: #e8e8e8ff;
+$text-secondary: #a0a0a0ff;
+$text-accent: #64ffdaff;
+$text-muted: #6c6c8aff;
+
+$border-color: #3a3a5aff;
+$border-accent: #64ffdaff;
+
+$dock-bg: #141428e6;
+$topbar-bg: #0f0f19f2;
+
+// typography
+$font-mono: 'Courier New', 'Consolas', 'Monaco', monospace;
+$font-size-base: 14px;
+$font-size-sm: 12px;
+$font-size-lg: 16px;
+$font-size-xl: 18px;
+
+// spacing
+$spacing-xs: 4px;
+$spacing-sm: 8px;
+$spacing-md: 16px;
+$spacing-lg: 24px;
+$spacing-xl: 32px;
+
+// window dimensions - character-based sizing for consistent terminal look
+// the window size is defined in characters, then converted to pixels
+$window-char-width: 256;
+$window-char-height: 64;
+$char-width: 8px; // approximate width of monospace character at 14px font
+$char-height: 16px; // approximate line height for monospace font
+$window-width: calc($window-char-width * $char-width);
+$window-height: calc($window-char-height * $char-height);
+$titlebar-height: 32px;
+
+// z-index layers
+$z-desktop: 1;
+$z-window-base: 10;
+$z-dock: 100;
+$z-topbar: 100;
+
+// transitions
+$transition-fast: 150ms ease;
+$transition-normal: 250ms ease;
+
+// ascii art characters for borders and decorations
+// box drawing - single line
+$ascii-corner-tl: '┌';
+$ascii-corner-tr: '┐';
+$ascii-corner-bl: '└';
+$ascii-corner-br: '┘';
+$ascii-line-h: '─';
+$ascii-line-v: '│';
+$ascii-tee-t: '┬';
+$ascii-tee-b: '┴';
+$ascii-tee-l: '├';
+$ascii-tee-r: '┤';
+$ascii-cross: '┼';
+
+// box drawing - double line
+$ascii-corner-tl-d: '╔';
+$ascii-corner-tr-d: '╗';
+$ascii-corner-bl-d: '╚';
+$ascii-corner-br-d: '╝';
+$ascii-line-h-d: '═';
+$ascii-line-v-d: '║';
+$ascii-tee-t-d: '╦';
+$ascii-tee-b-d: '╩';
+$ascii-tee-l-d: '╠';
+$ascii-tee-r-d: '╣';
+$ascii-cross-d: '╬';
+
+// decorative characters
+$ascii-bullet: '•';
+$ascii-arrow-r: '→';
+$ascii-arrow-l: '←';
+$ascii-arrow-u: '↑';
+$ascii-arrow-d: '↓';
+$ascii-prompt: '>';
+$ascii-hash: '#';

@@ -1,0 +1,78 @@
+@import '../../styles/variables.scss';
+
+.dock {
+  position: fixed;
+  bottom: 0;
+  left: 0;
+  right: 0;
+  height: 48px;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: 0 $spacing-lg;
+  background-color: $dock-bg;
+  border-top: 1px solid $border-color;
+  z-index: $z-dock;
+  backdrop-filter: blur(10px);
+  font-family: $font-mono;
+}
+
+.dock-left {
+  display: flex;
+  align-items: center;
+  gap: $spacing-sm;
+}
+
+.dock-right {
+  display: flex;
+  align-items: center;
+}
+
+.dock-time {
+  color: $text-accent;
+  font-size: $font-size-sm;
+}
+
+.dock-item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: $spacing-xs;
+  padding: $spacing-xs $spacing-sm;
+  background: transparent;
+  border: 1px solid transparent;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: all $transition-fast;
+  
+  &:hover {
+    background-color: #64ffda1a;
+    border-color: $border-color;
+  }
+  
+  &.active {
+    background-color: #64ffda26;
+    border-color: $text-accent;
+    
+    .dock-label {
+      color: $text-accent;
+    }
+  }
+}
+
+.dock-icon {
+  font-size: 18px;
+}
+
+.dock-label {
+  font-size: $font-size-sm;
+  color: $text-secondary;
+  transition: color $transition-fast;
+}
+
+.dock-divider {
+  width: 1px;
+  height: 24px;
+  background-color: $border-color;
+  margin: 0 $spacing-sm;
+}
