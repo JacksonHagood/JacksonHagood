@@ -1,0 +1,435 @@
+/* Jackson Hagood | jacksonhagood.com */
+
+/* fonts */
+
+@font-face {
+    font-family: Consola;
+    src: url("../Fonts/consola.ttf")
+}
+
+@font-face {
+    font-family: Bank;
+    src: url("../Fonts/BankGothic.ttf")
+}
+
+@font-face {
+    font-family: Noto;
+    src: url("../Fonts/NotoSans.ttf")
+}
+
+/* body */
+
+body {
+    background-color: #444444;
+    margin: 0;
+}
+
+/* header & navigation */
+
+header {
+    background-color: #252525;
+    border-radius: 25px;
+    margin: 50px 15% 0px 15%;
+    min-height: 120px;
+}
+
+.profile {
+    background-image: url("../Images/Logo.png");
+    background-size: cover;
+    float: left;
+    height: 120px;
+    margin: 5px;
+    width: 120px;
+    display: block;
+}
+
+.profile span {
+    display: none;
+}
+
+nav {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap-reverse;
+}
+
+nav a {
+    color: #FFFFFF;
+    font-family: Bank;
+    font-size: 30px;
+    padding: 50px 50px 50px 0px;
+    text-decoration: none;
+    text-transform: uppercase;
+}
+
+nav a:hover {
+    filter: opacity(50%);
+}
+
+.current {
+    color: #01d4ff !important;
+}
+
+/* article */
+
+article {
+    color: #FFFFFF;
+    min-height: 100vh;
+    padding-left: 15%;
+    padding-right: 15%;
+    padding-bottom: 1px;
+}
+
+article p {
+    font-family: Noto;
+    font-size: 20px;
+}
+
+article h2 {
+    font-family: Noto;
+    font-size: 25px;
+}
+
+article img {
+    width: 100%;
+}
+
+article li {
+    font-family: Noto;
+    font-size: 20px;
+}
+
+article a {
+    color: #FFFFFF;
+}
+
+article iframe {
+    border: none;
+    border-radius: 25px;
+}
+
+article table {
+    background: #FFFFFF;
+    border-collapse: collapse;
+    color: #252525;
+    font-family: Noto;
+    width: 100%;
+}
+
+article tr:hover td {
+    background-color: #252525;
+    color: #FFFFFF;
+}
+
+article th {
+    background-color: #252525;
+    color: #FFFFFF;
+}
+
+article td, article th {
+    padding: 5px;
+    text-align: left;
+}
+
+/* blocking */
+
+.center {
+    background: #0001c4;
+    background: linear-gradient(10deg, #0001c4 0%, #01d4ff 75%);
+    background-size: cover;
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    border-radius: 25px;
+    clear: both;
+    height: 100%;
+    margin-bottom: 50px;
+    margin-top: 50px;
+    padding: 25px;
+}
+
+.center:after {
+    clear: both;
+    content: ".";
+    display: block; 
+    height: 0;
+    visibility: hidden; 
+}
+
+.left {
+    float: left;
+    overflow: hidden;
+}
+
+.right {
+    float: right;
+    overflow: hidden;
+}
+
+.half {
+    width: 49%;
+}
+
+.onequarter {
+    width: 24%;
+}
+
+.threequarters {
+    width: 74%;
+}
+
+/* page title */
+
+.title {
+    height: 200px;
+    padding-Top: 50px;
+}
+
+.title h1 {
+    font-family: Consola;
+    font-size: 80px;
+    font-weight: normal;
+    line-height: 200px;
+    margin: 0px;
+    text-align: center; 
+    width: 100%;
+}
+
+/* links section */
+
+.links {
+    float: left;
+    width: 100%;
+}
+
+.links h1 {
+    float: left;
+    font-family: Consola;
+    font-size: 50px;
+    font-weight: normal;
+    margin: 0;
+}
+
+.links a {
+    float: right;
+    margin: 5px;
+}
+
+.links a:hover {
+    filter: opacity(50%);
+}
+
+.links img {
+    width: 40px;
+}
+
+/* skills */
+
+.skills {
+    display: flex;
+    cursor: default;
+    flex-wrap: wrap;
+}
+
+.skills > span {
+    background-color: #252525;
+    font-family: Consola;
+    font-size: 15px;
+    margin-right: 10px;
+    margin-top: 10px;
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/* slideshow */
+
+.slideshow img {
+    pointer-events: none;
+    vertical-align: middle;
+    width: 100%;
+    border-radius: 25px;
+}
+
+.slide {
+    display: none;
+}
+
+.slideshow {
+    margin: auto;
+    position: relative;
+    width: 100%;
+}
+
+.prev, .next {
+    cursor: pointer;
+    font-size: 64px;
+    margin-top: -64px;
+    padding: 32px;
+    position: absolute;
+    top: 50%;
+    user-select: none;
+    width: auto;
+}
+
+.prev {
+    left: 0;
+}
+
+.next {
+    right: 0;
+}
+
+.prev:hover, .next:hover {
+    color: #252525;
+}
+
+.caption {
+    bottom: 16px;
+    cursor: default;
+    font-family: Noto;
+    font-size: 16px;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.caption:hover {
+    color: #252525;
+}
+
+.number {
+    cursor: default;
+    font-family: Noto;
+    font-size: 16px;
+    padding: 16px 16px;
+    position: absolute;
+    top: 0;
+}
+
+.number:hover {
+    color: #252525;
+}
+
+/* image */
+
+.circle {
+    border-radius: 50%;
+}
+
+.imgpad {
+    padding: 5px;
+}
+
+/* index page */
+
+.index {
+    background-image: url("../Images/Hex.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.jackson {
+    padding-top: 40px;
+    pointer-events: none;
+    width: 100%;
+}
+
+.portrait {
+    width: 100%;
+    border-radius: 25px;
+}
+
+/* programming page */
+
+.programming {
+    background-image: url("../Images/Triangles.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.icon {
+    background-color: #252525;
+    border-radius: 25px;
+    width: 100%;
+}
+
+/* tutoring page */
+
+.tutoring {
+    background-image: url("../Images/Mountain.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.tutoring > article > .title {
+    color: #01d4ff;
+}
+
+/* interests page */
+
+.interests {
+    background-image: url("../Images/Cubes.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.interests > article > .title {
+    color: #252525;
+}
+
+.interests img {
+    border-radius: 25px;
+}
+
+/* resume page */
+
+.resume {
+    background-image: url("../Images/Waves.jpg");
+    background-size: cover;
+    background-attachment: fixed;
+}
+
+.resume > article > .center {
+    padding: 0px;
+    background: none;
+}
+
+/* footer */
+
+footer {
+    overflow: hidden;
+    text-align: center;
+    background-color: #252525;
+    border-radius: 25px;
+    margin: 0px 15% 50px 15%;
+}
+
+.footernavigation {
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+}
+
+.footerlinks {
+    display: flex;
+    flex-direction: row-reverse;
+    flex-wrap: wrap;
+}
+
+.footernavigation a {
+    margin: 25px 0px 25px 25px;
+}
+
+.footerlinks a {
+    margin: 25px 25px 25px 0px;
+}
+
+footer a {
+    color: #FFFFFF;
+    font-family: Consola;
+    font-size: 20px;
+}
+
+footer a:hover {
+    color: #01d4ff;
+}
