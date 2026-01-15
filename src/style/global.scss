@@ -1,6 +1,32 @@
 @import "./constants.scss";
 
+*{
+  margin: 0;
+  padding: 0;
+}
+
+
 body {
-    font-family: $font-mono;
-    white-space: pre-wrap;
+  background-color: $background_color;
+  background-image: $background_image;
+  background-size: cover;
+  font-family: $font_mono;
+  font-size: $font_size;
+  white-space: pre-wrap;
+}
+
+.Body {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+}
+
+.Terminal {
+  background-color: $terminal_color;
+  color: $terminal_text_color;
+}
+
+.Clickable {
+  cursor: pointer;
 }

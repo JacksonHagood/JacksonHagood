@@ -3,6 +3,8 @@ export type Cell = {
   char: string;
   background_color?: string;
   color?: string;
+  action?: any;
+  tag?: string;
 }
 
 // cell string is an array of cells

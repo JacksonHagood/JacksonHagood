@@ -9,6 +9,8 @@ export const CellSpan = (props: {cell: Cell}) => {
         ...(props.cell.background_color && {"backgroundColor": props.cell.background_color}),
         ...(props.cell.color && {"backgroundColor": props.cell.color}),
       }}
+      onClick = {props.cell.action ? props.cell.action.bind(null, props.cell.tag) : undefined}
+      className = {props.cell.action ? "Clickable" : undefined}
     >
       {props.cell.char}
     </span>

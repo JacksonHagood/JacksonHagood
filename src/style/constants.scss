@@ -1,5 +1,11 @@
 // colors
-$background-color: #FFFFFFFF;
+$background_color: #252525FF;
+$terminal_color: #000000FF;
+$terminal_text_color: #FFFFFFFF;
 
 // fonts
-$font-mono: "Courier New", "Consolas", "Monaco", monospace;
+$font_mono: "Courier New", "Consolas", "Monaco", monospace;
+$font_size: 28px;
+
+// images
+$background_image: url("../../public/images/hex.png")
