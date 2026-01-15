@@ -1,0 +1,41 @@
+// Variables and base styles for terminal
+
+// Import constants as CSS variables
+:root {
+  --bg-color: #0d0d0dff;
+  --fg-color: #e0e0e0ff;
+  --accent-color: #4fc3f7ff;
+  --accent-dim: #4fc3f780;
+  --border-color: #3a3a3aff;
+  --selection-color: #1e88e5ff;
+  --highlight-color: #2e7d32ff;
+  --dim-color: #757575ff;
+  --error-color: #ef5350ff;
+  --warning-color: #ffb74dff;
+  
+  --cell-width: 9px;
+  --cell-height: 16px;
+  --font-size: 14px;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html, body, #root {
+  width: 100%;
+  height: 100%;
+  overflow: hidden;
+  background-color: var(--bg-color);
+}
+
+body {
+  font-family: 'Courier New', 'Consolas', 'Monaco', 'Lucida Console', monospace;
+  font-size: var(--font-size);
+  line-height: 1;
+  color: var(--fg-color);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
