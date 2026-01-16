@@ -1,7 +1,7 @@
 import React from "react";
 import { useState } from 'react';
 
-import { Cell, CellString, CellBuffer } from "../types/cells"
+import { Cell, CellString } from "../types/cells"
 import { CellSpan } from "./terminal/cell_span"
 
 import { draw_header } from "../processing/header";
@@ -34,9 +34,9 @@ export const Terminal = (props: {width: number, height: number}) => {
   }
 
   var cell_buffer = []
-  cell_buffer.push(...draw_header(props.width));
+  cell_buffer.push(...draw_header(["about", "resume", "projects"], page_index, set_page_callback, props.width));
   cell_buffer.push(...draw_body(page, props.width, props.height - 4));
-  cell_buffer.push(...draw_footer(["about", "resume", "projects"], page_index, set_page_callback, "jagmachat@gmail.com", "HH:MM:SS", props.width));
+  cell_buffer.push(...draw_footer("jagmachat@gmail.com", "HH:MM:SS", props.width));
 
   return (
     <div className = "Terminal">

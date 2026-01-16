@@ -5,11 +5,8 @@
   padding: 0;
 }
 
-
 body {
-  background-color: $background_color;
-  background-image: $background_image;
-  background-size: cover;
+  background: linear-gradient($background_color_a, $background_color_b);
   font-family: $font_mono;
   font-size: $font_size;
   white-space: pre-wrap;
@@ -25,8 +22,10 @@ body {
 .Terminal {
   background-color: $terminal_color;
   color: $terminal_text_color;
+  box-shadow: 10px 10px 5px 0px $terminal_shadow_color;
 }
 
 .Clickable {
+  color: $clickable_text_color;
   cursor: pointer;
 }

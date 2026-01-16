@@ -5,31 +5,25 @@ import { string_to_cell_string, create_unary_cell_string } from "./cell_strings"
 /**
  * Draws a footer with a provided width
  * 
- * ├───────┐        ┌──────────┬─────┬─────────────────┬──────────┤
- * │ about │ resume │ projects │     │ email@email.com │ HH:MM:DD │
- * └───────┴────────┴──────────┴─────┴─────────────────┴──────────┘
+ * ├─────────────────────────────────┬─────────────────┬──────────┤
+ * │                                 │ email@email.com │ HH:MM:SS │
+ * └─────────────────────────────────┴─────────────────┴──────────┘
  * 
- * @param pages - The pages to be displayed as tabs
- * @param active_index - The index of the currently active page
- * @param page_callback - Callback used to change page
  * @param email - The email address
  * @param time - The current time
  * @param width - The width of the footer
  * @returns - Cell buffer containing the footer
  */
 export const draw_footer = (
-    pages: string[],
-    active_index: number,
-    page_callback: Function,
     email: string,
     time: string,
     width: number
 ): CellBuffer => {
   var cell_buffer: CellBuffer = [];
 
-  cell_buffer.push(draw_footer_row_0(pages, active_index, email, time, width));
-  cell_buffer.push(draw_footer_row_1(pages, page_callback, email, time, width));
-  cell_buffer.push(draw_footer_row_2(pages, email, time, width));
+  cell_buffer.push(draw_footer_row_0(email, time, width));
+  cell_buffer.push(draw_footer_row_1(email, time, width));
+  cell_buffer.push(draw_footer_row_2(email, time, width));
 
   return cell_buffer;
 }
@@ -37,46 +31,26 @@ export const draw_footer = (
 /**
  * Draws the first line of the footer
  * 
- * ├───────┐        ┌──────────┬─────┬─────────────────┬──────────┤
+ * ├─────────────────────────────────┬─────────────────┬──────────┤
  * 
- * @param pages - The pages to be displayed as tabs
- * @param active_index - The index of the currently active page
  * @param email - The email address
  * @param time - The current time
  * @param width - The width of the footer
  * @returns - Cell string containing the first line of the footer
  */
 const draw_footer_row_0 = (
-  pages: string[],
-  active_index: number,
   email: string,
   time: string,
   width: number
 ): CellString => {
   var cell_row: CellString = [];
 
-  cell_row.push({ char: active_index === 0 ? CHAR.L_V : CHAR.X_R });
-
-  // pages section, accounting for selected page
-  pages.forEach((page, index) => {
-    cell_row.push(...create_unary_cell_string(
-      active_index === index
-        ? CHAR.S
-        : CHAR.L_H,
-      page.length + 2
-    ))
-
-    cell_row.push({ char: active_index === index
-      ? CHAR.C_UL
-      : active_index === index + 1
-        ? CHAR.C_UR
-        : CHAR.X_D });
-  });
+  cell_row.push({ char: CHAR.X_R });
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
     CHAR.L_H,
-    calc_pad(pages, email, time, width)
+    calc_pad(email, time, width)
   ))
   
   cell_row.push({ char: CHAR.X_D });
@@ -103,18 +77,14 @@ const draw_footer_row_0 = (
 /**
  * Draws the second line of the footer
  * 
- * │ about │ resume │ projects │     │ email@email.com │ HH:MM:DD │
+ * │                                 │ email@email.com │ HH:MM:SS │
  * 
- * @param pages - The pages to be displayed as tabs
- * @param page_callback - Callback used to change page
  * @param email - The email address
  * @param time - The current time
  * @param width - The width of the footer
  * @returns - Cell string containing the second line of the footer
  */
 const draw_footer_row_1 = (
-  pages: string[],
-  page_callback: Function,
   email: string,
   time: string,
   width: number
@@ -123,18 +93,10 @@ const draw_footer_row_1 = (
 
   cell_row.push({ char: CHAR.L_V });
 
-  // pages section
-  for (const page of pages) {
-    cell_row.push({ char: CHAR.S });
-    cell_row.push(...string_to_cell_string(page, page_callback, page));
-    cell_row.push({ char: CHAR.S });
-    cell_row.push({ char: CHAR.L_V });
-  }
-
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
     CHAR.S,
-    calc_pad(pages, email, time, width)
+    calc_pad(email, time, width)
   ))
   
   cell_row.push({ char: CHAR.L_V });
@@ -159,16 +121,14 @@ const draw_footer_row_1 = (
 /**
  * Draws the third line of the footer
  * 
- * └───────┴────────┴──────────┴─────┴─────────────────┴──────────┘
+ * ─────────────────────────────────┴─────────────────┴──────────┘
  * 
- * @param pages - The pages to be displayed as tabs
  * @param email - The email address
  * @param time - The current time
  * @param width - The width of the footer
  * @returns - Cell string containing the third line of the footer
  */
 const draw_footer_row_2 = (
-  pages: string[],
   email: string,
   time: string,
   width: number
@@ -177,20 +137,10 @@ const draw_footer_row_2 = (
 
   cell_row.push({ char: CHAR.C_DL });
 
-  // pages section
-  for (const page of pages) {
-    cell_row.push(...create_unary_cell_string(
-      CHAR.L_H,
-      page.length + 2
-    ))
-
-    cell_row.push({ char: CHAR.X_U });
-  }
-
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
     CHAR.L_H,
-    calc_pad(pages, email, time, width)
+    calc_pad(email, time, width)
   ))
   
   cell_row.push({ char: CHAR.X_U });
@@ -224,16 +174,9 @@ const draw_footer_row_2 = (
  * @returns - The number of padding characters required to reach the width
  */
 const calc_pad = (
-  pages: string[],
   email: string,
   time: string,
   width: number
 ): number => {
-  var pages_width = 0;
-
-  for (const page of pages) {
-    pages_width += page.length + 3;
-  } 
-
-  return width - (pages_width + email.length + time.length + 8);
+  return width - (email.length + time.length + 8);
 }
