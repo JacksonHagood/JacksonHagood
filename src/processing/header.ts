@@ -52,7 +52,7 @@ const draw_header_row_0 = (
   // pages section
   for (const page of pages) {
     cell_row.push(...create_unary_cell_string(
-      CHAR.L_H,
+      { char: CHAR.L_H },
       page.length + 2
     ))
 
@@ -61,7 +61,7 @@ const draw_header_row_0 = (
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    CHAR.L_H,
+    { char: CHAR.L_H },
     calc_pad(pages, width)
   ))
 
@@ -99,7 +99,7 @@ const draw_header_row_1 = (
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    CHAR.S,
+    { char: CHAR.S },
     calc_pad(pages, width)
   ))
   
@@ -130,9 +130,11 @@ const draw_header_row_2 = (
     // pages section, accounting for selected page
     pages.forEach((page, index) => {
       cell_row.push(...create_unary_cell_string(
-        active_index === index
-          ? CHAR.S
-          : CHAR.L_H,
+        {
+          char: active_index === index
+            ? CHAR.S
+            : CHAR.L_H
+        },
         page.length + 2
       ))
   
@@ -145,7 +147,7 @@ const draw_header_row_2 = (
   
     // fill middle of row
     cell_row.push(...create_unary_cell_string(
-      CHAR.L_H,
+      { char: CHAR.L_H },
       calc_pad(pages, width)
     ))
   

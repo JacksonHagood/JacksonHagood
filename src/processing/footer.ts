@@ -49,7 +49,7 @@ const draw_footer_row_0 = (
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    CHAR.L_H,
+    { char: CHAR.L_H },
     calc_pad(email, time, width)
   ))
   
@@ -57,7 +57,7 @@ const draw_footer_row_0 = (
   
   // email section
   cell_row.push(...create_unary_cell_string(
-    CHAR.L_H,
+    { char: CHAR.L_H },
     email.length + 2
   ))
 
@@ -65,7 +65,7 @@ const draw_footer_row_0 = (
 
   // time section
   cell_row.push(...create_unary_cell_string(
-    CHAR.L_H,
+    { char: CHAR.L_H },
     time.length + 2
   ))
 
@@ -95,7 +95,7 @@ const draw_footer_row_1 = (
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    CHAR.S,
+    { char: CHAR.S },
     calc_pad(email, time, width)
   ))
   
@@ -139,7 +139,7 @@ const draw_footer_row_2 = (
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    CHAR.L_H,
+    { char: CHAR.L_H },
     calc_pad(email, time, width)
   ))
   
@@ -147,7 +147,7 @@ const draw_footer_row_2 = (
   
   // email section
   cell_row.push(...create_unary_cell_string(
-    CHAR.L_H,
+    { char: CHAR.L_H },
     email.length + 2
   ))
 
@@ -155,7 +155,7 @@ const draw_footer_row_2 = (
 
   // time section
   cell_row.push(...create_unary_cell_string(
-    CHAR.L_H,
+    { char: CHAR.L_H },
     time.length + 2
   ))
 

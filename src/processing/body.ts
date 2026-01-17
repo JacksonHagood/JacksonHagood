@@ -39,7 +39,6 @@ export const draw_body = (page: Layout, width: number, height: number): CellBuff
   var row_index = 0;
 
   while (row_index < height) {
-    console.log("A")
     var row_string: CellString = [];
 
     row_string.push({ char: CHAR.L_V });
@@ -52,7 +51,7 @@ export const draw_body = (page: Layout, width: number, height: number): CellBuff
         row_string.push(...column_buffer[row_index]);
       } else {
         // otherwise, pad row
-        row_string.push(...create_unary_cell_string(CHAR.S, column_buffer[0].length));
+        row_string.push(...create_unary_cell_string({ char: CHAR.S }, column_buffer[0].length));
       }
       
       row_string.push({ char: CHAR.S });
