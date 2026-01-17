@@ -1,6 +1,6 @@
 import React from "react";
 
-import { Cell } from "../../types/cells"
+import { Cell } from "../types/cells"
 
 export const CellSpan = (props: {cell: Cell}) => {
   return (

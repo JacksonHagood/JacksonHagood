@@ -2,7 +2,7 @@ import React, { useState, useEffect }  from "react";
 
 import { Cell, CellString, CellBuffer } from "../types/cells";
 import { Layout } from "../types/layout";
-import { CellSpan } from "./terminal/cell_span"
+import { CellSpan } from "./cell_span"
 
 import { draw_header } from "../processing/header";
 import { draw_footer } from "../processing/footer";
@@ -70,7 +70,7 @@ export const Terminal = (props: {
  * @param active_index - The index of the active page
  * @param set_page_callback - Callback to change the active page
  * @param page - The layout of t he current page
- * @returns 
+ * @returns - Cell buffer containing the header, body, and footer
  */
 export const create_cell_buffer = (
   width: number,
