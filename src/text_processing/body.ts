@@ -1,6 +1,7 @@
 import { CellString, CellBuffer } from "../types/cells";
 import { Layout } from "../types/layout";
 import * as CHAR from "../constants/characters";
+import * as TAG from "../constants/tags";
 import { create_unary_cell_string } from "./cell_strings";
 import { parse_markdown } from "./markdown";
 
@@ -41,21 +42,24 @@ export const draw_body = (page: Layout, width: number, height: number): CellBuff
   while (row_index < height) {
     var row_string: CellString = [];
 
-    row_string.push({ char: CHAR.L_V });
+    row_string.push({ char: CHAR.L_V, tag: TAG.FRAME });
 
-    for (const column_buffer of column_buffers) {
+    for (var index = 0; index < column_buffers.length; index++) {
       row_string.push({ char: CHAR.S });
 
-      if (row_index < column_buffer.length) {
+      if (row_index < column_buffers[index].length) {
         // if column has remaining content, add it to the current row
-        row_string.push(...column_buffer[row_index]);
+        row_string.push(...column_buffers[index][row_index]);
       } else {
         // otherwise, pad row
-        row_string.push(...create_unary_cell_string({ char: CHAR.S }, column_buffer[0].length));
+        row_string.push(...create_unary_cell_string({ char: CHAR.S }, column_buffers[index][0].length));
       }
       
       row_string.push({ char: CHAR.S });
-      row_string.push({ char: CHAR.L_V });
+      row_string.push(index === column_buffers.length - 1
+        ? { char: CHAR.L_V, tag: TAG.FRAME }
+        : { char: CHAR.S }
+      );
     }
 
     cell_buffer.push(row_string);

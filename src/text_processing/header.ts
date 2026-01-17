@@ -1,5 +1,6 @@
 import { CellString, CellBuffer } from "../types/cells";
 import * as CHAR from "../constants/characters";
+import * as TAG from "../constants/tags";
 import { string_to_cell_string, create_unary_cell_string } from "./cell_strings";
 
 /**
@@ -47,25 +48,25 @@ const draw_header_row_0 = (
 ): CellString => {
   var cell_row: CellString = [];
 
-  cell_row.push({ char: CHAR.C_UL });
+  cell_row.push({ char: CHAR.C_UL, tag: TAG.FRAME });
 
   // pages section
   for (const page of pages) {
     cell_row.push(...create_unary_cell_string(
-      { char: CHAR.L_H },
+      { char: CHAR.L_H, tag: TAG.FRAME },
       page.length + 2
     ));
 
-    cell_row.push({ char: CHAR.X_D });
+    cell_row.push({ char: CHAR.X_D, tag: TAG.FRAME });
   }
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    { char: CHAR.L_H },
+    { char: CHAR.L_H, tag: TAG.FRAME },
     calc_pad(pages, width)
   ));
 
-  cell_row.push({ char: CHAR.C_UR });
+  cell_row.push({ char: CHAR.C_UR, tag: TAG.FRAME });
 
   return cell_row;
 }
@@ -87,14 +88,14 @@ const draw_header_row_1 = (
 ): CellString => {
   var cell_row: CellString = [];
 
-  cell_row.push({ char: CHAR.L_V });
+  cell_row.push({ char: CHAR.L_V, tag: TAG.FRAME });
 
   // pages section
   for (const page of pages) {
     cell_row.push({ char: CHAR.S });
     cell_row.push(...string_to_cell_string(page, page_callback, page));
     cell_row.push({ char: CHAR.S });
-    cell_row.push({ char: CHAR.L_V });
+    cell_row.push({ char: CHAR.L_V, tag: TAG.FRAME });
   }
 
   // fill middle of row
@@ -103,7 +104,7 @@ const draw_header_row_1 = (
     calc_pad(pages, width)
   ));
   
-  cell_row.push({ char: CHAR.L_V });
+  cell_row.push({ char: CHAR.L_V, tag: TAG.FRAME });
 
   return cell_row;
 }
@@ -125,7 +126,7 @@ const draw_header_row_2 = (
 ): CellString => {
   var cell_row: CellString = [];
   
-  cell_row.push({ char: active_index === 0 ? CHAR.L_V : CHAR.X_R });
+  cell_row.push({ char: active_index === 0 ? CHAR.L_V : CHAR.X_R, tag: TAG.FRAME });
 
   // pages section, accounting for selected page
   pages.forEach((page, index) => {
@@ -133,25 +134,29 @@ const draw_header_row_2 = (
       {
         char: active_index === index
           ? CHAR.S
-          : CHAR.L_H
+          : CHAR.L_H,
+        tag: TAG.FRAME
       },
       page.length + 2
     ));
 
-    cell_row.push({ char: active_index === index
-      ? CHAR.C_DL
-      : active_index === index + 1
-        ? CHAR.C_DR
-        : CHAR.X_U });
+    cell_row.push({
+      char: active_index === index
+        ? CHAR.C_DL
+        : active_index === index + 1
+          ? CHAR.C_DR
+          : CHAR.X_U,
+      tag: TAG.FRAME
+    });
   });
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    { char: CHAR.L_H },
+    { char: CHAR.L_H, tag: TAG.FRAME },
     calc_pad(pages, width)
   ));
 
-  cell_row.push({ char: CHAR.X_L });
+  cell_row.push({ char: CHAR.X_L, tag: TAG.FRAME });
 
   return cell_row;
 }

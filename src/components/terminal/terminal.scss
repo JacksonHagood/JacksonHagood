@@ -1,0 +1,12 @@
+@import "../../style/constants.scss";
+
+.Terminal {
+  background: $terminal_color;
+  backdrop-filter: blur(50px);
+  box-shadow: 0px 0px 20px 5px $terminal_shadow_color;
+
+  font-family: $font_mono;
+  font-size: $font_size;
+  white-space: pre-wrap;
+  color: $terminal_text_color;
+}

@@ -1,6 +1,8 @@
 import React, { JSX } from "react";
 
-import { Cell } from "../types/cells";
+import { Cell } from "../../types/cells";
+
+import "./cell_span.scss";
 
 /**
  * Cell span react component
@@ -26,7 +28,7 @@ export const CellSpan = (props: {cell: Cell}): JSX.Element => {
         })
       }}
       onClick = {props.cell.action ? props.cell.action.bind(null, props.cell.tag) : undefined}
-      className = {props.cell.action ? "Clickable" : undefined}
+      className = {props.cell.action ? "Clickable" : props.cell.tag ? props.cell.tag : undefined}
     >
       {props.cell.char}
     </span>

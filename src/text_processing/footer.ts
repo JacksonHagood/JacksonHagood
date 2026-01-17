@@ -1,6 +1,17 @@
 import { CellString, CellBuffer } from "../types/cells";
 import * as CHAR from "../constants/characters";
+import * as TAG from "../constants/tags";
 import { string_to_cell_string, create_unary_cell_string } from "./cell_strings";
+
+/**
+ * Callback for opening email
+ * 
+ * @param tag - Tag of email
+ * @param event - Event information (unused)
+ */
+const open_email_callback = (tag: string, event: any) => {
+  window.location.href = `mailto:${encodeURIComponent(tag)}}`
+}
 
 /**
  * Draws a footer with a provided width
@@ -45,31 +56,31 @@ const draw_footer_row_0 = (
 ): CellString => {
   var cell_row: CellString = [];
 
-  cell_row.push({ char: CHAR.X_R });
+  cell_row.push({ char: CHAR.X_R, tag: TAG.FRAME });
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    { char: CHAR.L_H },
+    { char: CHAR.L_H, tag: TAG.FRAME },
     calc_pad(email, time, width)
   ));
   
-  cell_row.push({ char: CHAR.X_D });
+  cell_row.push({ char: CHAR.X_D, tag: TAG.FRAME });
   
   // email section
   cell_row.push(...create_unary_cell_string(
-    { char: CHAR.L_H },
+    { char: CHAR.L_H, tag: TAG.FRAME },
     email.length + 2
   ));
 
-  cell_row.push({ char: CHAR.X_D });
+  cell_row.push({ char: CHAR.X_D, tag: TAG.FRAME });
 
   // time section
   cell_row.push(...create_unary_cell_string(
-    { char: CHAR.L_H },
+    { char: CHAR.L_H, tag: TAG.FRAME },
     time.length + 2
   ));
 
-  cell_row.push({ char: CHAR.X_L });
+  cell_row.push({ char: CHAR.X_L, tag: TAG.FRAME });
 
   return cell_row;
 }
@@ -91,7 +102,7 @@ const draw_footer_row_1 = (
 ): CellString => {
   var cell_row: CellString = [];
 
-  cell_row.push({ char: CHAR.L_V });
+  cell_row.push({ char: CHAR.L_V, tag: TAG.FRAME });
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
@@ -99,21 +110,21 @@ const draw_footer_row_1 = (
     calc_pad(email, time, width)
   ));
   
-  cell_row.push({ char: CHAR.L_V });
+  cell_row.push({ char: CHAR.L_V, tag: TAG.FRAME });
   
   // email section
   cell_row.push({ char: CHAR.S });
-  cell_row.push(...string_to_cell_string(email));
+  cell_row.push(...string_to_cell_string(email, open_email_callback, email));
   cell_row.push({ char: CHAR.S });
 
-  cell_row.push({ char: CHAR.L_V });
+  cell_row.push({ char: CHAR.L_V, tag: TAG.FRAME });
 
   // time section
   cell_row.push({ char: CHAR.S });
   cell_row.push(...string_to_cell_string(time));
   cell_row.push({ char: CHAR.S });
 
-  cell_row.push({ char: CHAR.L_V });
+  cell_row.push({ char: CHAR.L_V, tag: TAG.FRAME });
 
   return cell_row;
 }
@@ -135,31 +146,31 @@ const draw_footer_row_2 = (
 ): CellString => {
   var cell_row: CellString = [];
 
-  cell_row.push({ char: CHAR.C_DL });
+  cell_row.push({ char: CHAR.C_DL, tag: TAG.FRAME });
 
   // fill middle of row
   cell_row.push(...create_unary_cell_string(
-    { char: CHAR.L_H },
+    { char: CHAR.L_H, tag: TAG.FRAME },
     calc_pad(email, time, width)
   ));
   
-  cell_row.push({ char: CHAR.X_U });
+  cell_row.push({ char: CHAR.X_U, tag: TAG.FRAME });
   
   // email section
   cell_row.push(...create_unary_cell_string(
-    { char: CHAR.L_H },
+    { char: CHAR.L_H, tag: TAG.FRAME },
     email.length + 2
   ));
 
-  cell_row.push({ char: CHAR.X_U });
+  cell_row.push({ char: CHAR.X_U, tag: TAG.FRAME });
 
   // time section
   cell_row.push(...create_unary_cell_string(
-    { char: CHAR.L_H },
+    { char: CHAR.L_H, tag: TAG.FRAME },
     time.length + 2
   ));
 
-  cell_row.push({ char: CHAR.C_DR });
+  cell_row.push({ char: CHAR.C_DR, tag: TAG.FRAME });
 
   return cell_row;
 }
