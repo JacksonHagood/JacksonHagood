@@ -51,7 +51,7 @@ const draw_footer_row_0 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.L_H },
     calc_pad(email, time, width)
-  ))
+  ));
   
   cell_row.push({ char: CHAR.X_D });
   
@@ -59,7 +59,7 @@ const draw_footer_row_0 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.L_H },
     email.length + 2
-  ))
+  ));
 
   cell_row.push({ char: CHAR.X_D });
 
@@ -67,7 +67,7 @@ const draw_footer_row_0 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.L_H },
     time.length + 2
-  ))
+  ));
 
   cell_row.push({ char: CHAR.X_L });
 
@@ -97,7 +97,7 @@ const draw_footer_row_1 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.S },
     calc_pad(email, time, width)
-  ))
+  ));
   
   cell_row.push({ char: CHAR.L_V });
   
@@ -141,7 +141,7 @@ const draw_footer_row_2 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.L_H },
     calc_pad(email, time, width)
-  ))
+  ));
   
   cell_row.push({ char: CHAR.X_U });
   
@@ -149,7 +149,7 @@ const draw_footer_row_2 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.L_H },
     email.length + 2
-  ))
+  ));
 
   cell_row.push({ char: CHAR.X_U });
 
@@ -157,7 +157,7 @@ const draw_footer_row_2 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.L_H },
     time.length + 2
-  ))
+  ));
 
   cell_row.push({ char: CHAR.C_DR });
 

@@ -8,14 +8,17 @@ import { layout as about_layout } from "./constants/layouts/about"
 import { layout as resume_layout } from "./constants/layouts/resume"
 import { layout as projects_layout } from "./constants/layouts/projects"
 
-const root = ReactDOM.createRoot(
-  document.getElementById("root") as HTMLElement
-);
+const root = ReactDOM.createRoot(document.getElementById("root") as HTMLElement);
 
 root.render(
-<React.StrictMode>
-  <div className="Body">
-    <Terminal width = {128} height = {32} pages = {["about", "resume", "projects"]} page_layouts = {[about_layout, resume_layout, projects_layout]}/>
-  </div>
-</React.StrictMode>
+  <React.StrictMode>
+    <div className="Body">
+      <Terminal
+        width = {128}
+        height = {32}
+        pages = {["about", "resume", "projects"]}
+        page_layouts = {[about_layout, resume_layout, projects_layout]}
+      />
+    </div>
+  </React.StrictMode>
 );

@@ -53,10 +53,7 @@ export const parse_markdown = (markdown_content: string, width: number): CellBuf
       if (char !== ")") {
         image_name += char;
       } else {
-        console.log(image_aspect_ratio)
-
         // entire image name has been found, parse image
-        console.log(image_name);
         cell_buffer.push(...parse_image(image_name, +image_aspect_ratio, width));
 
         // reset image handling vars
@@ -69,8 +66,8 @@ export const parse_markdown = (markdown_content: string, width: number): CellBuf
 
     // start a new line when character detected
     else if (char === "\n") {
-      cell_row.push(...current_word)
-      current_word = []
+      cell_row.push(...current_word);
+      current_word = [];
 
       cell_row = pad_row(cell_row, width);
 
@@ -119,8 +116,6 @@ export const parse_markdown = (markdown_content: string, width: number): CellBuf
  * @returns - Cell buffer containing image information with desired width
  */
 export const parse_image = (image_name: string, aspect_ratio: number, width: number): CellBuffer => {
-  console.log(aspect_ratio);
-
   // calculate aspect ratio of the image
   var cell_buffer: CellBuffer = [];
 

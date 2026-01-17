@@ -1,7 +1,7 @@
 import { CellString, CellBuffer } from "../types/cells";
 import { Layout } from "../types/layout";
 import * as CHAR from "../constants/characters";
-import { string_to_cell_string, create_unary_cell_string } from "./cell_strings";
+import { create_unary_cell_string } from "./cell_strings";
 import { parse_markdown } from "./markdown";
 
 /**
@@ -29,7 +29,7 @@ export const draw_body = (page: Layout, width: number, height: number): CellBuff
     // account for last column, ensuring width is filled with integer rounding
     column_width = index === page.columns.length - 1
       ? width - total_width - (3 * page.columns.length + 1)
-      : Math.floor((page.columns[index].size / 100) * (width - (3 * page.columns.length + 1)))
+      : Math.floor((page.columns[index].size / 100) * (width - (3 * page.columns.length + 1)));
 
     column_buffers.push(parse_markdown(page.columns[index].content, column_width));
 

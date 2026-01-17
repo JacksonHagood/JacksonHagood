@@ -1,14 +1,21 @@
-import React, { useState, useEffect }  from "react";
+import React, { useState, useEffect, JSX }  from "react";
 
 import { Cell, CellString, CellBuffer } from "../types/cells";
 import { Layout } from "../types/layout";
-import { CellSpan } from "./cell_span"
+import { CellSpan } from "./cell_span";
 
-import { draw_header } from "../processing/header";
-import { draw_footer } from "../processing/footer";
-import { draw_body } from "../processing/body";
+import { draw_header } from "../text_processing/header";
+import { draw_footer } from "../text_processing/footer";
+import { draw_body } from "../text_processing/body";
 
-// navigation callback
+/**
+ * Callback for page navigation
+ * 
+ * @param pages - Array of page names
+ * @param set_page_index - Callback for updating with the new index
+ * @param tag - Tag of next page
+ * @param event - Event information (unused)
+ */
 const set_page_callback = (pages: string[], set_page_index: Function, tag: string, event: any) => {
   set_page_index(pages.indexOf(tag));
 }
@@ -16,17 +23,16 @@ const set_page_callback = (pages: string[], set_page_index: Function, tag: strin
 /**
  * Terminal react component
  * 
- * @param props - Props of component, containing the terminal dimensions
- * @returns 
+ * @param props - Props of component, containing the dimensions, pages, and layouts
+ * @returns - JSX for the component
  */
 export const Terminal = (props: {
   width: number,
   height: number,
   pages: string[],
   page_layouts: Layout[],
-}) => {
+}): JSX.Element => {
   const [page_index, set_page_index] = useState<number>(0);
-
   const [cell_buffer, set_cell_buffer] = useState<CellBuffer>(create_cell_buffer(
     props.width,
     props.height,
@@ -80,7 +86,7 @@ export const create_cell_buffer = (
   set_page_callback: Function,
   page: Layout
 ): CellBuffer => {
-  var cell_buffer: CellBuffer = []
+  var cell_buffer: CellBuffer = [];
 
   cell_buffer.push(...draw_header(pages, active_index, set_page_callback, width));
   cell_buffer.push(...draw_body(page, width, height - 4));

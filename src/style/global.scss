@@ -5,27 +5,34 @@
   padding: 0;
 }
 
-body {
-  background: linear-gradient($background_color_a, $background_color_b);
-  font-family: $font_mono;
-  font-size: $font_size;
-  white-space: pre-wrap;
-}
-
 .Body {
   display: flex;
   justify-content: center;
   align-items: center;
   height: 100vh;
+  width: 100vw;
+
+  background-image: $background_image;
+  background-size: cover;
 }
 
 .Terminal {
-  background-color: $terminal_color;
+  background: $terminal_color;
+  backdrop-filter: blur(50px);
+  box-shadow: 0px 0px 20px 5px $terminal_shadow_color;
+
+  font-family: $font_mono;
+  font-size: $font_size;
+  white-space: pre-wrap;
   color: $terminal_text_color;
-  box-shadow: 10px 10px 5px 0px $terminal_shadow_color;
 }
 
 .Clickable {
-  color: $clickable_text_color;
+  background-image: linear-gradient(45deg, $gradient_color_a, $gradient_color_b);
+  background-clip: text;
+
+  color: transparent;
+  font-weight: bold;
+
   cursor: pointer;
 }

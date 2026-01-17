@@ -11,11 +11,11 @@ export type Cell = {
     y: number;               // y position of cell in image region
     width: number;           // image region width, in cells
     height: number;          // image region height, in cells
-  };
+  }
 }
 
 // cell string is an array of cells
-export type CellString = Cell[]
+export type CellString = Cell[];
 
 // cell buffer is a 2d matrix of cells
-export type CellBuffer = Cell[][]
+export type CellBuffer = Cell[][];

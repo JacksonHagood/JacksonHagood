@@ -1,8 +1,14 @@
-import React from "react";
+import React, { JSX } from "react";
 
-import { Cell } from "../types/cells"
+import { Cell } from "../types/cells";
 
-export const CellSpan = (props: {cell: Cell}) => {
+/**
+ * Cell span react component
+ * 
+ * @param props - Props of component, containing the cell information
+ * @returns - JSX for the component
+ */
+export const CellSpan = (props: {cell: Cell}): JSX.Element => {
   return (
     <span
       style = {{

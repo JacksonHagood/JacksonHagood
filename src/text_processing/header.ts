@@ -54,7 +54,7 @@ const draw_header_row_0 = (
     cell_row.push(...create_unary_cell_string(
       { char: CHAR.L_H },
       page.length + 2
-    ))
+    ));
 
     cell_row.push({ char: CHAR.X_D });
   }
@@ -63,7 +63,7 @@ const draw_header_row_0 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.L_H },
     calc_pad(pages, width)
-  ))
+  ));
 
   cell_row.push({ char: CHAR.C_UR });
 
@@ -101,7 +101,7 @@ const draw_header_row_1 = (
   cell_row.push(...create_unary_cell_string(
     { char: CHAR.S },
     calc_pad(pages, width)
-  ))
+  ));
   
   cell_row.push({ char: CHAR.L_V });
 
@@ -125,35 +125,35 @@ const draw_header_row_2 = (
 ): CellString => {
   var cell_row: CellString = [];
   
-    cell_row.push({ char: active_index === 0 ? CHAR.L_V : CHAR.X_R });
-  
-    // pages section, accounting for selected page
-    pages.forEach((page, index) => {
-      cell_row.push(...create_unary_cell_string(
-        {
-          char: active_index === index
-            ? CHAR.S
-            : CHAR.L_H
-        },
-        page.length + 2
-      ))
-  
-      cell_row.push({ char: active_index === index
-        ? CHAR.C_DL
-        : active_index === index + 1
-          ? CHAR.C_DR
-          : CHAR.X_U });
-    });
-  
-    // fill middle of row
+  cell_row.push({ char: active_index === 0 ? CHAR.L_V : CHAR.X_R });
+
+  // pages section, accounting for selected page
+  pages.forEach((page, index) => {
     cell_row.push(...create_unary_cell_string(
-      { char: CHAR.L_H },
-      calc_pad(pages, width)
-    ))
-  
-    cell_row.push({ char: CHAR.X_L });
-  
-    return cell_row;
+      {
+        char: active_index === index
+          ? CHAR.S
+          : CHAR.L_H
+      },
+      page.length + 2
+    ));
+
+    cell_row.push({ char: active_index === index
+      ? CHAR.C_DL
+      : active_index === index + 1
+        ? CHAR.C_DR
+        : CHAR.X_U });
+  });
+
+  // fill middle of row
+  cell_row.push(...create_unary_cell_string(
+    { char: CHAR.L_H },
+    calc_pad(pages, width)
+  ));
+
+  cell_row.push({ char: CHAR.X_L });
+
+  return cell_row;
 }
 
 /**

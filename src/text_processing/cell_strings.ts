@@ -30,7 +30,7 @@ export const string_to_cell_string = (string: string, callback?: Function, tag?:
  * @returns - Cell string containing the character repeated
  */
 export const create_unary_cell_string = (cell: Cell, width: number): CellString => {
-  var cell_string: CellString = []
+  var cell_string: CellString = [];
 
   for (var i = 0; i < width; i++) {
     cell_string.push(cell);
