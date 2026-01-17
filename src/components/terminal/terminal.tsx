@@ -1,4 +1,4 @@
-import React, { useState, useEffect, JSX }  from "react";
+import React, { useState, useEffect, JSX, useCallback }  from "react";
 
 import { Cell, CellString, CellBuffer } from "../../types/cells";
 import { Layout } from "../../types/layout";
@@ -8,16 +8,6 @@ import "./terminal.scss";
 import { draw_header } from "../../text_processing/header";
 import { draw_footer } from "../../text_processing/footer";
 import { draw_body } from "../../text_processing/body";
-
-const build_page = (header: CellBuffer, body: CellBuffer, footer: CellBuffer): CellBuffer => {
-  var cell_buffer: CellBuffer = [];
-
-  cell_buffer.push(...header);
-  cell_buffer.push(...body);
-  cell_buffer.push(...footer);
-
-  return cell_buffer;
-}
 
 /**
  * Callback for page navigation
@@ -35,12 +25,13 @@ const set_page_callback = (pages: string[], set_page_index: Function, tag: strin
  * Gets formatted time
  * 
  * @param time - Current time
+  const node_ref = useRef(null);
  * @returns - String containing time as HH:MM:SS
  */
 const get_time = (time: Date): string => {
   return `${time.getHours().toString().padStart(2, '0')}`
     + `:${time.getMinutes().toString().padStart(2, '0')}`
-    + `:${time.getSeconds() .toString().padStart(2, '0')}`;
+    + `:${time.getSeconds().toString().padStart(2, '0')}`;
 }
 
 /**
@@ -56,11 +47,41 @@ export const Terminal = (props: {
   page_layouts: Layout[],
   email: string
 }): JSX.Element => {
-  const [page_index, set_page_index] = useState<number>(0);
+  const [page_index, set_page_index] = useState<number>(0); // index of current page
+  const [start_row, set_start_row] = useState<number>(0); // index of first row in page to show
 
-  const [header, set_header] = useState<CellBuffer>(draw_header(props.pages, 0, set_page_callback.bind(null, props.pages, set_page_index), props.width));
-  const [body, set_body] = useState<CellBuffer>(draw_body(props.page_layouts[0], props.width, props.height - 4));
-  const [footer, set_footer] = useState<CellBuffer>(draw_footer(props.email, get_time(new Date()), props.width));
+  const [header, set_header] = useState<CellBuffer>(draw_header(props.pages, 0, set_page_callback.bind(null, props.pages, set_page_index), props.width)); // header buffer
+  const [body, set_body] = useState<CellBuffer>(draw_body(props.page_layouts[0], props.width, props.height - 6)); // body buffer
+  const [footer, set_footer] = useState<CellBuffer>(draw_footer(props.email, get_time(new Date()), props.width)); // footer buffer
+
+  // listener for arrow keys
+  const handle_key_down = useCallback((event: any) => {
+    if (event.key === "ArrowUp") {
+      set_start_row(start_row === 0 ? 0 : start_row - 1);
+    } else if (event.key === "ArrowDown") {
+      set_start_row(start_row >= body.length - props.height - 7 ? start_row : start_row + 1);
+    }
+  }, [start_row, body, props.height]);
+
+  // listener for scrolling
+  const handle_scroll = useCallback((event: any) => {
+    if (event.deltaY < 0) {
+      set_start_row(start_row === 0 ? 0 : start_row - 1);
+    } else if (event.deltaY > 0) {
+      set_start_row(start_row >= body.length - props.height - 7 ? start_row : start_row + 1);
+    }
+  }, [start_row, body, props.height]);
+
+  // add listeners for arrow keys and scrolling
+  useEffect(() => {
+    document.addEventListener("keydown", handle_key_down);
+    document.addEventListener("wheel", handle_scroll);
+
+    return () => {
+      document.removeEventListener("keydown", handle_key_down);
+      document.removeEventListener("wheel", handle_scroll);
+    }
+  }, [handle_key_down, handle_scroll]);
 
   // header and body update on page change
   useEffect(() => {
@@ -74,9 +95,11 @@ export const Terminal = (props: {
     set_body(draw_body(
       props.page_layouts[page_index],
       props.width,
-      props.height - 4
+      props.height - 6
     ));
-  }, [page_index]);
+
+    set_start_row(0);
+  }, [page_index, props.width, props.height, props.pages, props.page_layouts]);
 
   // footer updates each second for time
   setInterval(() => {
@@ -96,7 +119,7 @@ export const Terminal = (props: {
           ))}
         </div>
       ))}
-      {body.map((cell_row: CellString) => (
+      {body.slice(start_row, start_row + props.height - 6).map((cell_row: CellString) => (
         <div>
           {cell_row.map((cell: Cell) => (
             <CellSpan cell = {cell}/>

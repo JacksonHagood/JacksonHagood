@@ -9,4 +9,7 @@
   font-size: $font_size;
   white-space: pre-wrap;
   color: $terminal_text_color;
+
+  cursor: default;
+  letter-spacing: -1px;
 }

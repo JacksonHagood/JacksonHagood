@@ -14,10 +14,10 @@ import { parse_markdown } from "./markdown";
  * 
  * @param pages - The page to be drawn
  * @param width - The width of the page
- * @param height - The height of the page
+ * @param min_height - The minimum height of the page
  * @returns - Cell buffer containing the footer
  */
-export const draw_body = (page: Layout, width: number, height: number): CellBuffer => {
+export const draw_body = (page: Layout, width: number, min_height: number): CellBuffer => {
   var cell_buffer: CellBuffer = [];
 
   var column_buffers: CellBuffer[] = [];
@@ -26,7 +26,7 @@ export const draw_body = (page: Layout, width: number, height: number): CellBuff
   var total_width = 0;
 
   // parse each column's content
-  for (var index = 0; index < page.columns.length; index++) {
+  for (let index = 0; index < page.columns.length; index++) {
     // account for last column, ensuring width is filled with integer rounding
     column_width = index === page.columns.length - 1
       ? width - total_width - (3 * page.columns.length + 1)
@@ -37,19 +37,24 @@ export const draw_body = (page: Layout, width: number, height: number): CellBuff
     total_width += column_width;
   }
 
+  var remaining_buffer = true;
   var row_index = 0;
 
-  while (row_index < height) {
-    var row_string: CellString = [];
+  // iterate while there is remaining column buffers
+  while (remaining_buffer) {
+    remaining_buffer = false;
+    let row_string: CellString = [];
 
     row_string.push({ char: CHAR.L_V, tag: TAG.FRAME });
 
-    for (var index = 0; index < column_buffers.length; index++) {
+    for (let index = 0; index < column_buffers.length; index++) {
       row_string.push({ char: CHAR.S });
 
       if (row_index < column_buffers[index].length) {
         // if column has remaining content, add it to the current row
         row_string.push(...column_buffers[index][row_index]);
+
+        remaining_buffer = true;
       } else {
         // otherwise, pad row
         row_string.push(...create_unary_cell_string({ char: CHAR.S }, column_buffers[index][0].length));
@@ -64,6 +69,17 @@ export const draw_body = (page: Layout, width: number, height: number): CellBuff
 
     cell_buffer.push(row_string);
     row_index++;
+  }
+
+  // ensure minimum height is reached
+  while (cell_buffer.length < min_height) {
+    let row_string: CellString = [];
+
+    row_string.push({ char: CHAR.L_V, tag: TAG.FRAME });
+    row_string.push(...create_unary_cell_string({ char: CHAR.S }, width - 2));
+    row_string.push({ char: CHAR.L_V, tag: TAG.FRAME });
+
+    cell_buffer.push(row_string);
   }
 
   return cell_buffer;
