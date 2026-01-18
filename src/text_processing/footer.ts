@@ -4,16 +4,6 @@ import * as TAG from "../constants/tags";
 import { string_to_cell_string, create_unary_cell_string } from "./cell_strings";
 
 /**
- * Callback for opening email
- * 
- * @param tag - Tag of email
- * @param event - Event information (unused)
- */
-const open_email_callback = (tag: string, event: any) => {
-  window.location.href = `mailto:${encodeURIComponent(tag)}}`
-}
-
-/**
  * Draws a footer with a provided width
  * 
  * ├─────────────────────────────────┬─────────────────┬──────────┤
@@ -191,3 +181,14 @@ const calc_pad = (
 ): number => {
   return width - (email.length + time.length + 8);
 }
+
+/**
+ * Callback for opening email
+ * 
+ * @param tag - Tag of email
+ * @param event - Event information (unused)
+ */
+const open_email_callback = (tag: string, event: any) => {
+  window.location.href = `mailto:${encodeURIComponent(tag)}}`
+}
+

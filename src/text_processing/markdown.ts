@@ -1,7 +1,7 @@
 import { CellString, CellBuffer } from "../types/cells";
 import * as CHAR from "../constants/characters";
 import { FONT_RATIO } from "../constants/constants";
-import { create_unary_cell_string, pad_row } from "./cell_strings";
+import { string_to_cell_string, pad_row } from "./cell_strings";
 
 /**
  * Parses a string in markdown to a 2D array of cells (a cell buffer)
@@ -21,6 +21,12 @@ export const parse_markdown = (markdown_content: string, width: number): CellBuf
   var found_image: boolean = false;
   var image_aspect_ratio: string = "";
   var image_name: string = "";
+
+  // link handling
+  var is_link: boolean = false;
+  var found_link: boolean = false;
+  var link_name: string = "";
+  var link_address: string = "";
 
   for (const char of markdown_content) {
     // TODO: detect special lines, such as headings
@@ -61,6 +67,41 @@ export const parse_markdown = (markdown_content: string, width: number): CellBuf
         found_image = false;
         image_aspect_ratio = "";
         image_name = "";
+      }
+    }
+
+    // detect link
+    else if (char === "[") {
+      // add any remaining words
+      if (current_word.length !== 0) {
+        cell_row.push(...current_word);
+        current_word = [];
+        cell_buffer.push(cell_row);
+      }
+      
+      is_link = true;
+    }
+
+    else if (is_link && !found_link) {
+      if (char === "(") {
+        found_link = true;
+      } else if (!["[", "]"].includes(char)) {
+        link_name += char;
+      }
+    }
+
+    else if (is_link && found_link) {
+      if (char !== ")") {
+        link_address += char;
+      } else {
+        // entire link address has been found, add link
+        current_word = string_to_cell_string(link_name, open_link_callback, link_address);
+
+        // reset link handling vars
+        is_link = false;
+        found_link = false;
+        link_name = "";
+        link_address = "";
       }
     }
 
@@ -141,4 +182,14 @@ export const parse_image = (image_name: string, aspect_ratio: number, width: num
   }
 
   return cell_buffer;
+}
+
+/**
+ * Callback for opening email
+ * 
+ * @param tag - Tag of email
+ * @param event - Event information (unused)
+ */
+const open_link_callback = (tag: string, event: any) => {
+  window.open(tag, "_blank");
 }
