@@ -13,11 +13,19 @@ import { parse_markdown } from "./markdown";
  * │                                                      │       │
  * 
  * @param pages - The page to be drawn
+ * @param section_index - The section of content to render, if page has sections
+ * @param set_section_callback - Callback for updating current section
  * @param width - The width of the page
  * @param min_height - The minimum height of the page
  * @returns - Cell buffer containing the footer
  */
-export const draw_body = (page: Layout, width: number, min_height: number): CellBuffer => {
+export const draw_body = (
+  page: Layout,
+  section_index: number,
+  set_section_callback: Function,
+  width: number,
+  min_height: number
+): CellBuffer => {
   var cell_buffer: CellBuffer = [];
 
   var column_buffers: CellBuffer[] = [];
@@ -32,7 +40,20 @@ export const draw_body = (page: Layout, width: number, min_height: number): Cell
       ? width - total_width - (3 * page.columns.length + 1)
       : Math.floor((page.columns[index].size / 100) * (width - (3 * page.columns.length + 1)));
 
-    column_buffers.push(parse_markdown(page.columns[index].content, column_width));
+    if (Array.isArray(page.columns[index].content)) {
+      // handle content with sections
+      column_buffers.push(parse_markdown(
+        page.columns[index].content[section_index],
+        set_section_callback,
+        column_width
+      ));
+    } else {
+      column_buffers.push(parse_markdown(
+        page.columns[index].content,
+        set_section_callback,
+        column_width
+      ));
+    }
 
     total_width += column_width;
   }

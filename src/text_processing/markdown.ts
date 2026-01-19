@@ -7,10 +7,15 @@ import { string_to_cell_string, pad_row } from "./cell_strings";
  * Parses a string in markdown to a 2D array of cells (a cell buffer)
  * 
  * @param markdown_content - The string of markdown content
+ * @param set_section_callback - Callback for updating current section
  * @param width - The desired width of the cell buffer
  * @returns Cell buffer containing the parsed markdown
  */
-export const parse_markdown = (markdown_content: string, width: number): CellBuffer => {
+export const parse_markdown = (
+  markdown_content: string | string[],
+  set_section_callback: Function,
+  width: number
+): CellBuffer => {
   // cell management
   var cell_buffer: CellBuffer = [];
   var cell_row: CellString = [];
@@ -82,6 +87,7 @@ export const parse_markdown = (markdown_content: string, width: number): CellBuf
       is_link = true;
     }
 
+    // see if link has not been found yet
     else if (is_link && !found_link) {
       if (char === "(") {
         found_link = true;
@@ -90,12 +96,18 @@ export const parse_markdown = (markdown_content: string, width: number): CellBuf
       }
     }
 
+    // add char to link address
     else if (is_link && found_link) {
       if (char !== ")") {
         link_address += char;
       } else {
-        // entire link address has been found, add link
-        current_word = string_to_cell_string(link_name, open_link_callback, link_address);
+        // check for links to update section
+        if (!isNaN(Number(link_address))) {
+          current_word = string_to_cell_string(link_name, set_section_callback, link_address);
+        } else {
+          // entire link address has been found, add link
+          current_word = string_to_cell_string(link_name, open_link_callback, link_address);
+        }
 
         // reset link handling vars
         is_link = false;
@@ -185,9 +197,9 @@ export const parse_image = (image_name: string, aspect_ratio: number, width: num
 }
 
 /**
- * Callback for opening email
+ * Callback for opening link
  * 
- * @param tag - Tag of email
+ * @param tag - Tag of link
  * @param event - Event information (unused)
  */
 const open_link_callback = (tag: string, event: any) => {

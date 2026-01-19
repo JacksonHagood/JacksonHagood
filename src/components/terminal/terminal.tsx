@@ -21,6 +21,10 @@ const set_page_callback = (pages: string[], set_page_index: Function, tag: strin
   set_page_index(pages.indexOf(tag));
 }
 
+const set_section_callback = (set_section_index: Function, tag: string, event: any) => {
+  set_section_index(Number(tag));
+}
+
 /**
  * Gets formatted time
  * 
@@ -47,12 +51,32 @@ export const Terminal = (props: {
   page_layouts: Layout[],
   email: string
 }): JSX.Element => {
+  // TODO: optimize use effects
+
   const [page_index, set_page_index] = useState<number>(0); // index of current page
+  const [section_index, set_section_index] = useState<number>(0); // index of current section (if page has sections)
   const [start_row, set_start_row] = useState<number>(0); // index of first row in page to show
 
-  const [header, set_header] = useState<CellBuffer>(draw_header(props.pages, 0, set_page_callback.bind(null, props.pages, set_page_index), props.width)); // header buffer
-  const [body, set_body] = useState<CellBuffer>(draw_body(props.page_layouts[0], props.width, props.height - 6)); // body buffer
-  const [footer, set_footer] = useState<CellBuffer>(draw_footer(props.email, get_time(new Date()), props.width)); // footer buffer
+  const [header, set_header] = useState<CellBuffer>(draw_header(
+    props.pages,
+    0,
+    set_page_callback.bind(null, props.pages, set_page_index),
+    props.width
+  )); // header buffer
+
+  const [body, set_body] = useState<CellBuffer>(draw_body(
+    props.page_layouts[0],
+    section_index,
+    set_section_callback.bind(null, set_section_index),
+    props.width,
+    props.height - 6
+  )); // body buffer
+
+  const [footer, set_footer] = useState<CellBuffer>(draw_footer(
+    props.email,
+    get_time(new Date()),
+    props.width
+  )); // footer buffer
 
   // listener for arrow keys
   const handle_key_down = useCallback((event: any) => {
@@ -94,12 +118,26 @@ export const Terminal = (props: {
 
     set_body(draw_body(
       props.page_layouts[page_index],
+      0,
+      set_section_callback.bind(null, set_section_index),
       props.width,
       props.height - 6
     ));
 
     set_start_row(0);
+    set_section_index(0);
   }, [page_index, props.width, props.height, props.pages, props.page_layouts]);
+
+  // body update on section change
+  useEffect(() => {
+    set_body(draw_body(
+      props.page_layouts[page_index],
+      section_index,
+      set_section_callback.bind(null, set_section_index),
+      props.width,
+      props.height - 6
+    ));
+  }, [section_index, page_index, props.width, props.height, props.page_layouts])
 
   // footer updates each second for time
   setInterval(() => {
