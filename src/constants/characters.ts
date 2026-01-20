@@ -1,0 +1,12 @@
+export const S    = " "; // space
+export const L_H  = "─"; // line - horizontal
+export const L_V  = "│"; // line - vertical
+export const C_UL = "┌"; // corner - up, left
+export const C_UR = "┐"; // corner - up, right
+export const C_DL = "└"; // corner - down, left
+export const C_DR = "┘"; // corner - down, right
+export const X_R  = "├"; // cross - right
+export const X_L  = "┤"; // cross - left
+export const X_U  = "┴"; // cross - up
+export const X_D  = "┬"; // cross - down
+export const X_A  = "┼"; // cross - all
