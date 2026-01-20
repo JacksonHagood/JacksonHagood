@@ -18,6 +18,7 @@ Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor i
 export const image = `![1](profile.png)`
 
 export const layout: Layout = {
+    show_dividers: false,
     columns: [
         {
             size: 75,

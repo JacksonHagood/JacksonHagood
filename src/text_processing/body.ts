@@ -84,7 +84,7 @@ export const draw_body = (
       row_string.push({ char: CHAR.S });
       row_string.push(index === column_buffers.length - 1
         ? { char: CHAR.L_V, tag: TAG.FRAME }
-        : { char: CHAR.S }
+        : { char: page.show_dividers ? CHAR.L_V : CHAR.S }
       );
     }
 

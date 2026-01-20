@@ -17,6 +17,7 @@ export const cpp_basics =
 `
 
 export const layout: Layout = {
+    show_dividers: true,
     columns: [
         {
             size: 25,
